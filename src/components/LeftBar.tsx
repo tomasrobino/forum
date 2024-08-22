@@ -1,4 +1,4 @@
-import styles from './LeftBar.module.css'
+import styles from './SideBar.module.css'
 
 export default function LeftBar() {
   return(

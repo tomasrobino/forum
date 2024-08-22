@@ -12,3 +12,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.layoutDiv {
+  display: flex;
+  justify-content: space-between;
+}
