@@ -1,5 +1,5 @@
 .bar {
-    background-color: grey;
+    background-color: lightgray;
     height: 100vh;
     width: 3vw;
     padding: 0 5px;
@@ -9,9 +9,15 @@
 }
 
 .button {
-    border-radius: 30%;
+    border-radius: 50%;
+    border: 0;
     margin-top: 1vw;
-    width: 1.5vw;
-    height: 1.5vw;
-    background-color: red;
+    width: 1.3vw;
+    height: 1.3vw;
+    background-color: grey;
+}
+
+.button:hover {
+    background-color: rgb(60, 60, 60);
+    cursor: pointer;
 }
