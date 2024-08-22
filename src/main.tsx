@@ -16,7 +16,6 @@ const router = createBrowserRouter(
           <App>
             <Outlet/>
           </App>
-
           <RightBar />
         </div>
       }
