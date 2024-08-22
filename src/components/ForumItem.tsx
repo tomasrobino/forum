@@ -6,7 +6,7 @@ export default function ForumItem(props: {isCategory: boolean}) {
       <div className={styles.left}>
         <div className={styles.icon}></div>
         <div className={styles.titleNDesc}>
-          <h2 className={styles.title}>Title</h2>
+          <a className={styles.title}>Title</a>
           {props.isCategory? <h4 className={styles.description}>Description</h4> : <a className={styles.postTimestamp}></a>}
         </div>
       </div>
