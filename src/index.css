@@ -13,6 +13,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  margin: 0;
+}
+
 .layoutDiv {
   display: flex;
   justify-content: space-between;
