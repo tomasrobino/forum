@@ -1,13 +1,13 @@
 import styles from './ForumItem.module.css'
 
-export default function ForumItem(props: {isCategory: boolean}) {
+export default function ForumItem(props: {isCategory: boolean, title: string, description: string}) {
   return(
     <div className={styles.item}>
       <div className={styles.left}>
         <div className={styles.icon}></div>
         <div className={styles.titleNDesc}>
-          <a className={styles.title}>Title</a>
-          {props.isCategory? <h4 className={styles.description}>Description</h4> : <a className={styles.postTimestamp}></a>}
+          <a className={styles.title}>{props.title}</a>
+          {props.isCategory? <h4 className={styles.description}>{props.description}</h4> : <a className={styles.postTimestamp}></a>}
         </div>
       </div>
       <div className={styles.right}>
