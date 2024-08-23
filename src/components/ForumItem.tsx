@@ -7,30 +7,30 @@ export default function ForumItem(props: {isCategory: boolean, title: string, de
         <div className={styles.icon}></div>
         <div className={styles.titleNDesc}>
           <a className={styles.title}>{props.title}</a>
-          {props.isCategory? <h4 className={styles.description}>{props.description}</h4> : <a className={styles.postTimestamp}></a>}
+          {props.isCategory? <p className={styles.description}>{props.description}</p> : <a className={styles.postTimestamp}>Jul 12, 2017, 9:54 PM</a>}
         </div>
       </div>
       <div className={styles.right}>
         <div className={styles.group}>
           <div className={`${styles.square}`} >
-            <h4 className={styles.amount}>{props.isCategory? 1 : 1}</h4>
-            <h6 className={styles.squareTitle}>{props.isCategory? "topics" : "posts"}</h6>
+            <p className={styles.amount}>{props.isCategory? 1 : 1}</p>
+            <p className={styles.squareTitle}>{props.isCategory? "topics" : "posts"}</p>
           </div>
           <div className={`${styles.square}`} >
-            <h4 className={styles.amount}>2</h4>
-            <h6 className={styles.squareTitle}>posts</h6>
+            <p className={styles.amount}>2</p>
+            <p className={styles.squareTitle}>posts</p>
           </div>
           {props.isCategory? null : <div className={`${styles.square}`} >
-            <h4 className={styles.amount}>3</h4>
-            <h6 className={styles.squareTitle}>replies</h6>
+            <p className={styles.amount}>3</p>
+            <p className={styles.squareTitle}>replies</p>
           </div> }
         </div>
         <div className={styles.lastPost}>
-          <div>
+          <div className={styles.postTop}>
             <div className={styles.poster}></div>
-            <a className={styles.replyTimestamp}></a>
+            <a className={styles.replyTimestamp}>Jul 12, 2017, 9:54 PM</a>
           </div>
-          <p className={styles.postText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet sollicitudin nisl. Ut a magna consectetur</p>
+          <p className={styles.postText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
         </div>
       </div>
     </div>

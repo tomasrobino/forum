@@ -1,8 +1,13 @@
+p {
+    margin: 0;
+}
+
 .item {
     display: flex;
-    height: fit-content;
-    width: 100%;
+    height: 55px;
+    width: 60%;
     align-items: center;
+    justify-content: space-between;
 }
 
 .item > div {
@@ -11,6 +16,7 @@
 
 .left {
     display: flex;
+    width: 50%;
 }
 
 .icon {
@@ -22,35 +28,79 @@
 }
 
 .title {
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 .description {
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: unset;
     margin: 0;
 }
 
 .right {
     display: flex;
-    width: inherit;
+    height: inherit;
 }
 
 .group {
-    margin-left: 10px;
+    border-left: 3px solid;
+    border-right: 3px solid;
     display: flex;
-    width: 50%;
-    height: 50%;
+    width: 40%;
+    height: inherit;
+    padding-left: 5px;
+    padding-right: 10px;
+
 }
 
 .square {
-    margin-left: 10px;
+    margin-left: 5px;
     text-align: center;
     background-color: lightgray;
-    height: 5%;
     width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 10px;
+}
+
+.square > p {
+    color: rgb(60,60,60);
+}
+
+.amount {
+    font-size: 1.5em;
+    margin-bottom: -0.3em;
+}
+
+.squareTitle {
+    font-size: 0.8em;
+}
+
+.lastPost {
+    padding-left: 10px;
+}
+
+.postTop {
+    display: flex;
+    align-items: center;
+    margin-top: 1px;
+    margin-bottom: -2px;
+}
+
+.poster {
+    width: 20px;
+    height: 20px;
+    background-color: grey;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.replyTimestamp {
+    font-size: 0.7em;
 }
 
 .postText {
-    width: 60%;
+    font-size: 0.8em;
 }
