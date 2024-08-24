@@ -7,7 +7,7 @@ export default function ForumItem(props: {isCategory?: boolean, title: string, d
         <div className={styles.icon}></div>
         <div className={styles.titleNDesc}>
           <a className={styles.title}>{props.title}</a>
-          {props.isCategory? <p className={styles.description}>{props.description}</p> : <a className={styles.postTimestamp}>Jul 12, 2017, 9:54 PM</a>}
+          {props.isCategory? <p className={styles.description}>{props.description}</p> : <a className={styles.description}>Jul 12, 2017, 9:54 PM</a>}
         </div>
       </div>
       <div className={styles.right}>
@@ -30,7 +30,7 @@ export default function ForumItem(props: {isCategory?: boolean, title: string, d
             <div className={styles.poster}></div>
             <a className={styles.replyTimestamp}>Jul 12, 2017, 9:54 PM</a>
           </div>
-          <p className={styles.postText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+          <p className={styles.postText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit DSAIUDSDU DUSIAODSH uh</p>
         </div>
       </div>
     </div>
