@@ -20,6 +20,7 @@ p {
 }
 
 .icon {
+    min-width: 50px;
     width: 50px;
     height: 50px;
     background-color: white;
@@ -43,21 +44,18 @@ p {
 }
 
 .group {
-    border-left: 3px solid;
-    border-right: 3px solid;
+    padding: 0 5px;
+    border-right: 2px solid;
+    border-left: 2px solid;
     display: flex;
-    width: 40%;
     height: inherit;
-    padding-left: 5px;
-    padding-right: 10px;
-
 }
 
 .square {
-    margin-left: 5px;
+    margin: 0 5px;
     text-align: center;
     background-color: lightgray;
-    width: 100%;
+    width: 60px;
     height: 100%;
     display: flex;
     flex-direction: column;
