@@ -17,6 +17,7 @@ p {
 .left {
     display: flex;
     width: 50%;
+    height: 100%;
 }
 
 .icon {
@@ -31,10 +32,11 @@ p {
 .titleNDesc {
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .title {
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
 
 .description {
@@ -42,7 +44,7 @@ p {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    font-size: 1em;
+    font-size: 0.9em;
     font-weight: unset;
     margin: 0;
 }
