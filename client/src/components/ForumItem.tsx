@@ -1,5 +1,4 @@
 import styles from './ForumItem.module.css'
-
 export default function ForumItem(props: {isCategory?: boolean, title: string, description: string}) {
   return(
     <div className={styles.item}>
