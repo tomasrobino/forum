@@ -7,20 +7,20 @@ var router = express.Router();
 //Only for testing purposes
 const categories = [
   {
-    title: "a",
-    desc: "b",
-    lastPost: "c",
-    timestamp: "d",
-    user: "e",
+    title: "afdgagdgeragerger",
+    desc: "bqwswqzasaeaweaeaw",
+    lastPost: "cp,o,phjjhopmkj,h",
+    timestamp: "dtr89yrupt98r",
+    user: "erewrew",
     topics: 1,
     posts: 2
   },
   {
-    title: "f",
-    desc: "g",
-    lastPost: "h",
-    timestamp: "i",
-    user: "j",
+    title: "freweqwsswd",
+    desc: "gfsfsfwerewr",
+    lastPost: "rewrewreh",
+    timestamp: "idsffewrwerwer",
+    user: "ewrewrewj",
     topics: 3,
     posts: 4
   }
