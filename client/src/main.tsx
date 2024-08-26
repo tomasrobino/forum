@@ -20,7 +20,12 @@ const router = createBrowserRouter(
         </div>
       }
     >
-      <Route path="/" element={<Dashboard />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/" children={[
+        <Route path="/category/:categoryname"/>,
+        <Route path="/topic/:topicid"/>
+      ]}/>
+
     </Route>
   )
 );
