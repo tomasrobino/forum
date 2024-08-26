@@ -4,7 +4,7 @@ import {category} from "../types.ts";
 
 
 export default function Dashboard() {
-    const [categoriesData, setCategoriesData]: [category[], Dispatch<SetStateAction<category[]>>] = useState(Array<category>);
+  const [categoriesData, setCategoriesData]: [category[], Dispatch<SetStateAction<category[]>>] = useState(Array<category>);
   useEffect(() => {
     const url = import.meta.env.VITE_URL;
     //Fetching categories
@@ -14,7 +14,6 @@ export default function Dashboard() {
       .catch(error => console.error('Error:', error))
   }, [])
 
-  console.log(categoriesData)
   const categories = [];
   for (let i = 0; i < categoriesData.length; i++) {
     categories.push(<ForumItem

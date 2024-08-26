@@ -6,6 +6,7 @@ import {createBrowserRouter, createRoutesFromElements, Outlet, Route, RouterProv
 import LeftBar from "./components/LeftBar.tsx";
 import RightBar from "./components/RightBar.tsx";
 import Dashboard from "./components/Dashboard.tsx";
+import {TopMenu} from "./components/TopMenu/TopMenu.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -22,7 +23,7 @@ const router = createBrowserRouter(
     >
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/" children={[
-        <Route path="/category/:categoryname"/>,
+        <Route path="/category/:categoryname" element={<TopMenu isCategory={true}/>}/>,
         <Route path="/topic/:topicid"/>
       ]}/>
 
