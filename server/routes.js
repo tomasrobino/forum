@@ -1,5 +1,5 @@
 const express = require('express');
-const getCategory = require("./controllers/forum");
+const {getPosts, getCategory} = require("./controllers/forum");
 const categories = require("./data/dummy").categories;
 const router = express.Router();
 
@@ -9,5 +9,7 @@ router.get('/forum/categories', function(req, res) {
 });
 
 router.get('/forum/category/:cat', getCategory);
+
+router.get('/forum/category/:cat/posts', getPosts)
 
 module.exports = router;

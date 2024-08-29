@@ -47,6 +47,52 @@ const categories = [
   }
 ]
 
+const posts = {
+  "mineral-oil": {
+    title: "Mineral Oil Post 1",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, ipsum non vulputate mattis, urna velit lacinia lectus, at ultricies ligula ipsum in ex. Sed et mi id ipsum fringilla malesuada. Integer vel ipsum vel velit hendrerit gravida.",
+    timestamp: "3/16/2024",
+    author: "tcoultass0",
+    replyAmount: "20",
+    replies: [
+      {
+        title: "Reply 1",
+        text: "This is a reply to the post.",
+        timestamp: "3/17/2024",
+        author: "ssadsaderr"
+      },
+      {
+        title: "Reply 2",
+        text: "This is a reply to the post.",
+        timestamp: "3/17/2024",
+        author: "ssadsaderr"
+      }
+    ]
+  },
+  "ketorolac-tromethamine": {
+    title: "ketorolac Tromethamine Post 1",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, ipsum non vulputate mattis, urna velit lacinia lectus, at ultricies ligula ipsum in ex. Sed et mi id ipsum fringilla malesuada. Integer vel ipsum vel velit hendrerit gravida.",
+    timestamp: "3/16/2024",
+    author: "mjerzak1",
+    replyAmount: "15",
+    replies: [
+      {
+        title: "Reply 1",
+        text: "This is a reply to the post.",
+        timestamp: "3/17/2024",
+        author: "ssadsaderr"
+      },
+      {
+        title: "Reply 2",
+        text: "This is a reply to the post.",
+        timestamp: "3/17/2024",
+        author: "ase43244"
+      }
+    ]
+  }
+}
+
 module.exports = {
-  categories: categories
-};
+  categories: categories,
+  posts: posts
+}
