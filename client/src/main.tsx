@@ -6,7 +6,7 @@ import {createBrowserRouter, createRoutesFromElements, Outlet, Route, RouterProv
 import LeftBar from "./components/LeftBar.tsx";
 import RightBar from "./components/RightBar.tsx";
 import Dashboard from "./components/Dashboard.tsx";
-import {TopMenu} from "./components/TopMenu/TopMenu.tsx";
+import {TopMenu} from "./components/category/TopMenu.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
