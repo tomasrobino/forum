@@ -2,6 +2,7 @@ import {useLocation} from "react-router-dom";
 import {Dispatch, SetStateAction, useEffect, useState} from "react";
 import {BoardHeader} from "./BoardHeader.tsx";
 import {category} from "../../types.ts";
+import {CategoryMenuBar} from "./CategoryMenuBar.tsx";
 
 export function Board() {
   const location = useLocation();
@@ -19,6 +20,7 @@ export function Board() {
   return (
     <>
       {data? <BoardHeader iconColor="orange" icon={""} title={data.title} description={data.desc} postAmount={data.posts} topicAmount={data.topics} /> : null}
+      <CategoryMenuBar />
     </>
   );
 }
