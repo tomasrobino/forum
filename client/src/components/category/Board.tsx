@@ -18,7 +18,7 @@ export function Board() {
 
   return (
     <>
-      {data? <BoardHeader icon={""} title={data.title} description={data.desc} postAmount={data.posts} topicAmount={data.topics} /> : null}
+      {data? <BoardHeader iconColor="orange" icon={""} title={data.title} description={data.desc} postAmount={data.posts} topicAmount={data.topics} /> : null}
     </>
   );
 }

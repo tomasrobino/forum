@@ -1,13 +1,13 @@
 import styles from './BoardHeader.module.css'
 import {NavLink} from "react-router-dom";
 
-export function BoardHeader(props: {icon: string, title: string, description: string, topicAmount: number, postAmount: number}) {
+export function BoardHeader(props: {iconColor: string, icon: string, title: string, description: string, topicAmount: number, postAmount: number}) {
   return (
     <>
       <NavLink to={"/"} className={styles.navbar} >Home</NavLink>
       <div className={styles.header}>
         <div className={styles.titleNImg}>
-          <div className={styles.iconBox}>
+          <div className={styles.iconBox} style={{ backgroundColor: props.iconColor }}>
             {/* <img className={styles.icon} src={props.icon} alt={props.title}/> */}
           </div>
           <p className={styles.title}>{props.title}</p>
