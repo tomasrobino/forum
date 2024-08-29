@@ -4,8 +4,8 @@ import {NavLink} from "react-router-dom";
 export function BoardHeader(props: {icon: string, title: string, description: string, topicAmount: number, postAmount: number}) {
   return (
     <>
-      <NavLink to={"/"} >Home</NavLink>
-      <div>
+      <NavLink to={"/"} className={styles.navbar} >Home</NavLink>
+      <div className={styles.header}>
         <div className={styles.titleNImg}>
           <div className={styles.iconBox}>
             {/* <img className={styles.icon} src={props.icon} alt={props.title}/> */}

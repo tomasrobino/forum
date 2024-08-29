@@ -1,3 +1,7 @@
+.header {
+    margin-top: 3vh;
+}
+
 .titleNImg {
     display: flex;
     align-items: center;
