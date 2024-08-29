@@ -1,7 +1,7 @@
-import {useEffect, useState} from "react";
 import {useLocation} from "react-router-dom";
+import {useEffect, useState} from "react";
 
-export function TopMenu(props: {isCategory: boolean}) {
+export function Board() {
   const location = useLocation();
   const [data, setData] = useState();
   useEffect(() => {
@@ -13,9 +13,9 @@ export function TopMenu(props: {isCategory: boolean}) {
       .catch(error => console.error('Error:', error))
   }, [])
 
-  return (
-    <div>
 
-    </div>
+  return (
+    <>
+    </>
   );
 }
