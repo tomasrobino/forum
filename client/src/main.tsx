@@ -7,6 +7,7 @@ import LeftBar from "./components/LeftBar.tsx";
 import RightBar from "./components/RightBar.tsx";
 import Dashboard from "./components/Dashboard.tsx";
 import {Board} from "./components/category/Board.tsx";
+import {TopBar} from "./components/TopBar.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -15,6 +16,7 @@ const router = createBrowserRouter(
         <div className="layoutDiv">
           <LeftBar />
           <App>
+            <TopBar />
             <Outlet/>
           </App>
           <RightBar />
