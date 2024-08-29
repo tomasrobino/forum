@@ -2,7 +2,7 @@ const categories = [
   {
     "urlName": "mineral-oil",
     "title": "Mineral Oil",
-    "desc": "Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.",
+    "desc": "Etiam pretium iaculis justo. In hac habitasse platea dictumst.",
     "lastPost": "Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.\n\nPhasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.",
     "timestamp": "3/16/2024",
     "user": "tcoultass0",

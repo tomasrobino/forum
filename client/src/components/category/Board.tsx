@@ -1,9 +1,11 @@
 import {useLocation} from "react-router-dom";
-import {useEffect, useState} from "react";
+import {Dispatch, SetStateAction, useEffect, useState} from "react";
+import {BoardHeader} from "./BoardHeader.tsx";
+import {category} from "../../types.ts";
 
 export function Board() {
   const location = useLocation();
-  const [data, setData] = useState();
+  const [data, setData]: [category | undefined, Dispatch<SetStateAction<category | undefined>>] = useState();
   useEffect(() => {
     const url = import.meta.env.VITE_URL;
     //Fetching categories
@@ -16,6 +18,7 @@ export function Board() {
 
   return (
     <>
+      {data? <BoardHeader icon={""} title={data.title} description={data.desc} postAmount={data.posts} topicAmount={data.topics} /> : null}
     </>
   );
 }
