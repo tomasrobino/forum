@@ -1,6 +1,6 @@
 const express = require('express');
 const getCategory = require("./controllers/forum");
-const categories = require("./data/dummy");
+const categories = require("./data/dummy").categories;
 const router = express.Router();
 
 //GET forum categories
