@@ -21,7 +21,7 @@ const router = createBrowserRouter(
         </div>
       }
     >
-      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/" element={<Dashboard />} />
       <Route path="/" children={[
         <Route path="/category/:categoryname" element={<TopMenu isCategory={true}/>}/>,
         <Route path="/topic/:topicid"/>

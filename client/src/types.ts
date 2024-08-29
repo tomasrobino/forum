@@ -6,4 +6,5 @@ export interface category {
   user: string,
   topics: number,
   posts: number
+  urlName: string
 }

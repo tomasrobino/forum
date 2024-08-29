@@ -2,6 +2,15 @@ p {
     margin: 0;
 }
 
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: grey;
+}
+
 .item {
     display: flex;
     height: 55px;

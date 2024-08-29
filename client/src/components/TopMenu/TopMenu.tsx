@@ -1,10 +1,9 @@
-import {Dispatch, SetStateAction, useEffect, useState} from "react";
-import {category} from "../../types.ts";
+import {useEffect, useState} from "react";
 import {useLocation} from "react-router-dom";
 
 export function TopMenu(props: {isCategory: boolean}) {
   const location = useLocation();
-  const [data, setData]: [category[], Dispatch<SetStateAction<category[]>>] = useState(Array<category>);
+  const [data, setData] = useState();
   useEffect(() => {
     const url = import.meta.env.VITE_URL;
     //Fetching categories

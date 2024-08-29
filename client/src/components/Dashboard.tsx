@@ -17,6 +17,7 @@ export default function Dashboard() {
   const categories = [];
   for (let i = 0; i < categoriesData.length; i++) {
     categories.push(<ForumItem
+      url={categoriesData[i].urlName}
       title={categoriesData[i].title}
       description={categoriesData[i].desc}
       user={categoriesData[i].user}
