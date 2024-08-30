@@ -8,6 +8,7 @@ import RightBar from "./components/RightBar.tsx";
 import Dashboard from "./components/Dashboard.tsx";
 import {Board} from "./components/category/Board.tsx";
 import {TopBar} from "./components/TopBar.tsx";
+import {Post} from "./components/post/Post.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,7 +27,7 @@ const router = createBrowserRouter(
       <Route path="/" element={<Dashboard />} />
       <Route path="/" children={[
         <Route path="/category/:categoryname" element={ <Board /> }/>,
-        <Route path="/topic/:topicid"/>
+        <Route path="category/:categoryname/post/:id" element={ <Post /> }/>
       ]}/>
 
     </Route>
