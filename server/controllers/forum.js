@@ -16,7 +16,13 @@ function getPosts(req, res) {
   res.send( posts[category] );
 }
 
+function getSinglePost(req, res) {
+  // TODO: Implement real db connection
+  res.send("placeholder")
+}
+
 module.exports = {
   getCategory,
-  getPosts
+  getPosts,
+  getSinglePost
 };
