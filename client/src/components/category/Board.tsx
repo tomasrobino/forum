@@ -1,3 +1,4 @@
+import styles from './Board.module.css'
 import {useLocation} from "react-router-dom";
 import {Dispatch, SetStateAction, useEffect, useState} from "react";
 import {BoardHeader} from "./BoardHeader.tsx";
@@ -36,6 +37,7 @@ export function Board() {
       secondAmount={postsData[i].replyAmount}
       key={i}
     />)
+    posts.push(<hr className={styles.line}/>)
   }
 
   return (
