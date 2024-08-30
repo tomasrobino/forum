@@ -7,7 +7,8 @@ const categories = [
     "timestamp": "3/16/2024",
     "user": "tcoultass0",
     "topics": 775,
-    "posts": 755
+    "posts": 755,
+    "views": 1230
   }, {
     "urlName": "ketorolac-tromethamine",
     "title": "ketorolac tromethamine",
@@ -16,7 +17,8 @@ const categories = [
     "timestamp": "7/12/2024",
     "user": "mjerzak1",
     "topics": 281,
-    "posts": 687
+    "posts": 687,
+    "views": 675
   }, {
     "urlName": "aspirin-and-caffeine",
     "title": "aspirin and caffeine",
@@ -25,7 +27,8 @@ const categories = [
     "timestamp": "1/19/2024",
     "user": "alofty2",
     "topics": 377,
-    "posts": 600
+    "posts": 600,
+    "views": 87644
   }, {
     "urlName": "midazolam",
     "title": "Midazolam",
@@ -34,7 +37,8 @@ const categories = [
     "timestamp": "11/4/2024",
     "user": "jworden3",
     "topics": 80,
-    "posts": 822
+    "posts": 822,
+    "views": 342
   }, {
     "urlName": "almacone",
     "title": "Almacone",
@@ -43,17 +47,20 @@ const categories = [
     "timestamp": "6/20/2024",
     "user": "eberwick4",
     "topics": 446,
-    "posts": 942
+    "posts": 942,
+    "views": 1
   }
 ]
 
 const posts = {
   "mineral-oil": [
     {
+      id: "1",
       title: "Mineral Oil Post 1",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, ipsum non vulputate mattis, urna velit lacinia lectus, at ultricies ligula ipsum in ex. Sed et mi id ipsum fringilla malesuada. Integer vel ipsum vel velit hendrerit gravida.",
       timestamp: "3/16/2024",
       author: "tcoultass0",
+      views: "2454",
       replyAmount: "20",
       replies: [
         {
@@ -71,10 +78,12 @@ const posts = {
       ]
     },
     {
+      id: "2",
       title: "Mineral Oil Post 2",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, ipsum non vulputate mattis, urna velit lacinia lectus, at ultricies ligula ipsum in ex. Sed et mi id ipsum fringilla malesuada. Integer vel ipsum vel velit hendrerit gravida.",
       timestamp: "3/17/2024",
       author: "tcoultass0",
+      views: "76",
       replyAmount: "10",
       replies: [
         {
@@ -94,10 +103,12 @@ const posts = {
   ],
   "ketorolac-tromethamine": [
     {
+      id: "3",
       title: "ketorolac Tromethamine Post 1",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, ipsum non vulputate mattis, urna velit lacinia lectus, at ultricies ligula ipsum in ex. Sed et mi id ipsum fringilla malesuada. Integer vel ipsum vel velit hendrerit gravida.",
       timestamp: "3/16/2024",
       author: "mjerzak1",
+      views: "5",
       replyAmount: "15",
       replies: [
         {
@@ -115,10 +126,12 @@ const posts = {
       ]
     },
     {
+      id: "4",
       title: "ketorolac Tromethamine Post 2",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, ipsum non vulputate mattis, urna velit lacinia lectus, at ultricies ligula ipsum in ex. Sed et mi id ipsum fringilla malesuada. Integer vel ipsum vel velit hendrerit gravida.",
       timestamp: "3/17/2024",
       author: "mjerzak1",
+      views: "6575",
       replyAmount: "5",
       replies: [
         {

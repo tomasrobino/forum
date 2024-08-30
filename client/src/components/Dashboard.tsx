@@ -23,8 +23,8 @@ export default function Dashboard() {
       user={categoriesData[i].user}
       timestamp={categoriesData[i].timestamp}
       lastPost={categoriesData[i].lastPost}
-      posts={categoriesData[i].posts}
-      topics={categoriesData[i].topics}
+      secondAmount={categoriesData[i].posts}
+      firstAmount={categoriesData[i].topics}
       isCategory={true}
       key={i}
     />)
