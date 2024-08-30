@@ -29,7 +29,7 @@ export function Board() {
     posts.push(<ForumItem
       url={postsData[i].id.toString()}
       title={postsData[i].title}
-      user={postsData[i].author} //TODO: Get last author
+      user={postsData[i].author}
       timestamp={postsData[i].timestamp}
       lastPost={"fdsuilfmlndsbofoiushlifu  kudsy fdslñ fjls fdsgi fpds lgfsdy  fuif lhds f dsfh"} //TODO: Get last post
       firstAmount={postsData[i].views}
