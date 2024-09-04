@@ -26,8 +26,8 @@ const router = createBrowserRouter(
     >
       <Route path="/" element={<Dashboard />} />
       <Route path="/" children={[
-        <Route path="/category/:categoryname" element={ <Board /> }/>,
-        <Route path="category/:categoryname/post/:id" element={ <Post /> }/>
+        <Route key="categoryKey" path="/category/:categoryname" element={ <Board /> }/>,
+        <Route key="postKey" path="category/:categoryname/post/:id" element={ <Post /> }/>
       ]}/>
 
     </Route>
