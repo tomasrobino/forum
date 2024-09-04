@@ -18,7 +18,12 @@ function getPosts(req, res) {
 
 function getSinglePost(req, res) {
   // TODO: Implement real db connection
-  res.send({"placeholder":"placeholder"})
+  const post = Object.values(posts).find(post => post.id === parseInt(req.params.id));
+  if(post) {
+    res.send(post);
+  } else {
+    res.status(404).send({"error":"Post not found"});
+  }
 }
 
 module.exports = {
