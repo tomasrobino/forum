@@ -1,4 +1,4 @@
-import {PostMenuBar} from "./PostMenuBar.tsx";
+import {MenuBar} from "../MenuBar.tsx";
 import {PostHeader} from "./PostHeader.tsx";
 import {Dispatch, SetStateAction, useEffect, useState} from "react";
 import {category, post} from "../../types.ts";
@@ -48,7 +48,7 @@ export function Post() {
   return (
     <>
       <PostHeader categoryURL={parentCategory.urlName} category={parentCategory.title} iconColor={""} icon={""} title={post.title} replies={344} posters={23} />
-      <PostMenuBar />
+      <MenuBar />
     </>
   );
 }

@@ -1,8 +1,8 @@
-import styles from './PostMenuBar.module.css'
+import styles from './MenuBar.module.css'
 import {ChangeEvent, useState} from "react";
 import {useSearchParams} from "react-router-dom";
 
-export function PostMenuBar() {
+export function MenuBar() {
   const [selectedValue, setSelectedValue] = useState("newest");
   const [_searchParams, setSearchParams] = useSearchParams();
   function handleChange(event: ChangeEvent<HTMLSelectElement>) {
