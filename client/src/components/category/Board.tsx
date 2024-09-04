@@ -3,8 +3,8 @@ import {useLocation} from "react-router-dom";
 import {Dispatch, SetStateAction, useEffect, useState} from "react";
 import {BoardHeader} from "./BoardHeader.tsx";
 import {category, post} from "../../types.ts";
-import {CategoryMenuBar} from "./CategoryMenuBar.tsx";
 import ForumItem from "../ForumItem.tsx";
+import {MenuBar} from "../MenuBar.tsx";
 
 export function Board() {
   const location = useLocation();
@@ -42,7 +42,7 @@ export function Board() {
   return (
     <>
       {categoryData? <BoardHeader iconColor="orange" icon={""} title={categoryData.title} description={categoryData.desc} postAmount={categoryData.posts} topicAmount={categoryData.topics} /> : null}
-      <CategoryMenuBar />
+      <MenuBar options={[{name: "Last posted", value: "lastPosted"}, {name: "Most replies", value: "mostReplies"}, {name: "Fewest replies", value: "fewestReplies"}]} />
       {...posts}
     </>
   );
