@@ -1,7 +1,7 @@
 import styles from './PostHeader.module.css'
 import {NavLink} from "react-router-dom";
 
-export function PostHeader(props: {categoryURL: string, category: string, iconColor: string, icon: string, title: string, replies: number, posts: number}) {
+export function PostHeader(props: {categoryURL: string, category: string, iconColor: string, icon: string, title: string, replies: number, posters: number}) {
   return (
     <>
       <div className={styles.navbar}>
@@ -16,12 +16,12 @@ export function PostHeader(props: {categoryURL: string, category: string, iconCo
             <p className={styles.amountText}>{props.category}</p>
           </div>
           <div className={styles.box}>
-            <p className={styles.amount}>{props.posts}</p>
-            <p className={styles.amountText}>posts</p>
+            <p className={styles.amount}>{props.replies}</p>
+            <p className={styles.amountText}>replies</p>
           </div>
           <div className={styles.box}>
-            <p className={styles.amount}>{props.replies}</p>
-            <p className={styles.amountText}>posts</p>
+            <p className={styles.amount}>{props.posters}</p>
+            <p className={styles.amountText}>posters</p>
           </div>
         </div>
       </div>

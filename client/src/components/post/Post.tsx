@@ -47,7 +47,7 @@ export function Post() {
 
   return (
     <>
-      <PostHeader categoryURL={parentCategory.urlName} category={parentCategory.title} iconColor={""} icon={""} title={post.title} replies={344} posts={12342} />
+      <PostHeader categoryURL={parentCategory.urlName} category={parentCategory.title} iconColor={""} icon={""} title={post.title} replies={344} posters={23} />
       <PostMenuBar />
     </>
   );
