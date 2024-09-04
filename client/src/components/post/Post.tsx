@@ -50,9 +50,41 @@ export function Post() {
     <>
       <PostHeader categoryURL={parentCategory.urlName} category={parentCategory.title} iconColor={""} icon={""} title={post.title} replies={344} posters={23} />
       <MenuBar options={[{value: "newest", name: "Newest"}, {value: "oldest", name: "Oldest"}]} />
-      <Reply quote={true} />
+      <Reply
+        quote={{
+          author: "dasodi",
+          text: "Sed ornare, massa in vestibulum commodo, magna est pellentesque eros, eu auctor leo magna eu justo. Proin ac tincidunt orci. Maecenas eu ex non tellus vulputate imperdiet. Ut ultricies lacus nec diam pellentesque, a hendrerit arcu ultrices."
+        }}
+        title="Pensando en la inmortalidad del cangrejo"
+        date="2017-3-4"
+        text="Praesent sagittis, eros at gravida ultrices, nulla mi lacinia est, ac feugiat dui nibh consequat odio. Vestibulum accumsan faucibus lectus eget laoreet. Praesent nec blandit sapien. Cras dignissim blandit massa, id vestibulum erat placerat eget. Quisque tincidunt erat tellus, et viverra neque efficitur in. Vestibulum gravida est ut enim placerat aliquam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam diam lorem, euismod a dolor vel, consequat egestas dolor. Suspendisse scelerisque imperdiet aliquam. Aenean nec condimentum leo. Etiam aliquam ac eros eu suscipit. Etiam at eros nibh. Donec dignissim ac turpis ut sagittis. Integer sit amet venenatis dui. In a magna facilisis, malesuada velit in, elementum leo. Aenean placerat ante nisi, eu interdum nunc pellentesque vitae."
+        user={{
+          posts: 34,
+          username: "admin",
+          joinDate: "2014-10-17",
+          avatar: "",
+          profile: "",
+          topics: 12
+        }}
+      />
       <hr style={{ margin: "80px 0" }} />
-      <Reply quote={true} />
+      <Reply
+        quote={{
+          author: "dasodi",
+          text: "Sed ornare, massa in vestibulum commodo, magna est pellentesque eros, eu auctor leo magna eu justo. Proin ac tincidunt orci. Maecenas eu ex non tellus vulputate imperdiet. Ut ultricies lacus nec diam pellentesque, a hendrerit arcu ultrices."
+        }}
+        title="Pensando en la inmortalidad del cangrejo"
+        date="2017-3-4"
+        text="Praesent sagittis, eros at gravida ultrices, nulla mi lacinia est, ac feugiat dui nibh consequat odio. Vestibulum accumsan faucibus lectus eget laoreet. Praesent nec blandit sapien. Cras dignissim blandit massa, id vestibulum erat placerat eget. Quisque tincidunt erat tellus, et viverra neque efficitur in. Vestibulum gravida est ut enim placerat aliquam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam diam lorem, euismod a dolor vel, consequat egestas dolor. Suspendisse scelerisque imperdiet aliquam. Aenean nec condimentum leo. Etiam aliquam ac eros eu suscipit. Etiam at eros nibh. Donec dignissim ac turpis ut sagittis. Integer sit amet venenatis dui. In a magna facilisis, malesuada velit in, elementum leo. Aenean placerat ante nisi, eu interdum nunc pellentesque vitae."
+        user={{
+          posts: 34,
+          username: "admin",
+          joinDate: "2014-10-17",
+          avatar: "",
+          profile: "",
+          topics: 12
+        }}
+      />
     </>
   );
 }

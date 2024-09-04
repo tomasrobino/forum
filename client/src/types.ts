@@ -26,3 +26,12 @@ export interface post {
   replyAmount: number,
   replies: reply[]
 }
+
+export interface user {
+  username: string,
+  avatar: string,
+  posts: number,
+  topics: number,
+  profile: string
+  joinDate: string
+}
