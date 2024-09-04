@@ -1,7 +1,7 @@
 import {PostMenuBar} from "./PostMenuBar.tsx";
 import {PostHeader} from "./PostHeader.tsx";
 import {Dispatch, SetStateAction, useEffect, useState} from "react";
-import {category} from "../../types.ts";
+import {category, post} from "../../types.ts";
 import {useLocation} from "react-router-dom";
 
 
@@ -17,6 +17,16 @@ export function Post() {
     urlName: "",
     user: ""
   });
+  const [post, setPost]: [post, Dispatch<SetStateAction<post>>] = useState<post>({
+    author: "",
+    content: "",
+    id: 0,
+    replies: [],
+    replyAmount: 0,
+    timestamp: "",
+    title: "",
+    views: 0
+  })
 
   useEffect(() => {
     const url = import.meta.env.VITE_URL;
@@ -31,7 +41,7 @@ export function Post() {
 
     fetch(`${url}/forum${location.pathname}`)
       .then(data => data.json())
-      .then(data => console.log(data))
+      .then(data => setPost(data))
       .catch(error => console.error('Error:', error))
   }, [])
 
