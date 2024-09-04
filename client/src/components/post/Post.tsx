@@ -3,6 +3,7 @@ import {PostHeader} from "./PostHeader.tsx";
 import {Dispatch, SetStateAction, useEffect, useState} from "react";
 import {category, post} from "../../types.ts";
 import {useLocation} from "react-router-dom";
+import {Reply} from "./Reply.tsx";
 
 
 export function Post() {
@@ -49,6 +50,9 @@ export function Post() {
     <>
       <PostHeader categoryURL={parentCategory.urlName} category={parentCategory.title} iconColor={""} icon={""} title={post.title} replies={344} posters={23} />
       <MenuBar options={[{value: "newest", name: "Newest"}, {value: "oldest", name: "Oldest"}]} />
+      <Reply quote={true} />
+      <hr style={{ margin: "80px 0" }} />
+      <Reply quote={true} />
     </>
   );
 }
