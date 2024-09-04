@@ -48,7 +48,7 @@ export function Post() {
   return (
     <>
       <PostHeader categoryURL={parentCategory.urlName} category={parentCategory.title} iconColor={""} icon={""} title={post.title} replies={344} posters={23} />
-      <MenuBar />
+      <MenuBar options={[{value: "newest", name: "Newest"}, {value: "oldest", name: "Oldest"}]} />
     </>
   );
 }
