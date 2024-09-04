@@ -1,3 +1,4 @@
+import styles from './Post.module.css'
 import {MenuBar} from "../MenuBar.tsx";
 import {PostHeader} from "./PostHeader.tsx";
 import {Dispatch, SetStateAction, useEffect, useState} from "react";
@@ -57,14 +58,14 @@ export function Post() {
   const replyArray = [];
   for (const reply of post.replies) {
     console.log(reply.title)
-    replyArray.push( <Reply title={reply.title} text={reply.text} date={reply.date} user={{
+    replyArray.push( <Reply title={reply.title} text={reply.text} date={reply.timestamp} user={{
       posts: reply.author.posts,
       username: reply.author.username,
       joinDate: reply.author.joinDate,
       avatar: reply.author.avatar,
       profile: reply.author.profile,
       topics: reply.author.topics
-    }} />);
+    }} />, <hr className={styles.hr}/>);
   }
   replyArray.splice(0, 0, <Reply title={post.title} text={post.text} date={post.timestamp} user={{
     posts: post.author.posts,
@@ -73,7 +74,7 @@ export function Post() {
     avatar: post.author.avatar,
     profile: post.author.profile,
     topics: post.author.topics
-  }} />)
+  }} />, <hr className={styles.hr}/>);
 
   return (
     <>

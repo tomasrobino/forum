@@ -12,7 +12,7 @@ export interface category {
 export interface reply {
   title: string,
   text: string,
-  date: string,
+  timestamp: string,
   author: user,
   id: number
 }

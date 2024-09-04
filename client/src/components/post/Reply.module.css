@@ -42,15 +42,16 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
-    border-bottom: 2px solid;
 }
 
 .title {
     font-size: 1.5em;
+    border-bottom: 2px solid;
 }
 
 .date {
     font-size: 1.2em;
+    border-bottom: 2px solid;
 }
 
 .text {
