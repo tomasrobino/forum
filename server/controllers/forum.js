@@ -18,7 +18,7 @@ function getPosts(req, res) {
 
 function getSinglePost(req, res) {
   // TODO: Implement real db connection
-  res.send("placeholder")
+  res.send({"placeholder":"placeholder"})
 }
 
 module.exports = {

@@ -26,7 +26,6 @@ export function Board() {
 
   const posts = [];
   for (let i = 0; i < postsData.length; i++) {
-    console.log(postsData[i]);
     posts.push(<ForumItem
       url={postsData[i].id.toString()}
       title={postsData[i].title}

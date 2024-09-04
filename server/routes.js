@@ -12,6 +12,6 @@ router.get('/forum/category/:cat', getCategory);
 
 router.get('/forum/category/:cat/posts', getPosts)
 
-router.get('/forum/post/:id', getSinglePost)
+router.get('/forum/category/:cat/post/:id', getSinglePost)
 
 module.exports = router;

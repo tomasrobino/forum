@@ -1,10 +1,15 @@
 import styles from './PostHeader.module.css'
-import {NavLink} from "react-router-dom";
+import {NavLink, useParams} from "react-router-dom";
 
-export function PostHeader(props: {iconColor: string, icon: string, title: string, description: string, topicAmount: number, postAmount: number}) {
+export function PostHeader(props: {category: string, iconColor: string, icon: string, title: string, description: string, topicAmount: number, postAmount: number}) {
+  const { id } = useParams();
   return (
     <>
-      <NavLink to={"/"} className={styles.navbar} >Home</NavLink>
+      <div className={styles.navbar}>
+        <NavLink to={"/"} className={styles.navLink} >Home</NavLink>
+        <span className={styles.arrow}>→</span>
+        <NavLink to={"/category/"+props.category+"/post/"+id} className={styles.navLink} >{props.category}</NavLink>
+      </div>
       <div className={styles.header}>
         <div className={styles.titleNImg}>
           <div className={styles.iconBox} style={{ backgroundColor: props.iconColor }}>
