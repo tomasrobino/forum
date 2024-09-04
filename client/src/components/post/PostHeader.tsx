@@ -1,8 +1,7 @@
 import styles from './PostHeader.module.css'
-import {NavLink, useParams} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 export function PostHeader(props: {categoryURL: string, category: string, iconColor: string, icon: string, title: string, replies: number, posts: number}) {
-  const { id } = useParams();
   return (
     <>
       <div className={styles.navbar}>
