@@ -64,12 +64,14 @@ const posts = {
       replyAmount: "20",
       replies: [
         {
+          id: 1,
           title: "Reply 1",
           text: "This is a reply to the post.",
           timestamp: "3/17/2024",
           author: "ssadsaderr"
         },
         {
+          id: 2,
           title: "Reply 2",
           text: "This is a reply to the post.",
           timestamp: "3/17/2024",
@@ -87,12 +89,14 @@ const posts = {
       replyAmount: "10",
       replies: [
         {
+          id: 1,
           title: "Reply 1",
           text: "This is a reply to the post.",
           timestamp: "3/17/2024",
           author: "ssadsaderr"
         },
         {
+          id: 2,
           title: "Reply 2",
           text: "This is a reply to the post.",
           timestamp: "3/17/2024",
@@ -112,12 +116,14 @@ const posts = {
       replyAmount: "15",
       replies: [
         {
+          id: 1,
           title: "Reply 1",
           text: "This is a reply to the post.",
           timestamp: "3/17/2024",
           author: "ssadsaderr"
         },
         {
+          id: 2,
           title: "Reply 2",
           text: "This is a reply to the post.",
           timestamp: "3/17/2024",
@@ -135,12 +141,14 @@ const posts = {
       replyAmount: "5",
       replies: [
         {
+          id: 1,
           title: "Reply 1",
           text: "This is a reply to the post.",
           timestamp: "3/17/2024",
           author: "ssadsaderr"
         },
         {
+          id: 2,
           title: "Reply 2",
           text: "This is a reply to the post.",
           timestamp: "3/17/2024",

@@ -12,8 +12,9 @@ export interface category {
 export interface reply {
   title: string,
   text: string,
-  timestamp: string,
-  author: string,
+  date: string,
+  author: user,
+  id: number
 }
 
 export interface post {
