@@ -59,7 +59,14 @@ const posts = {
       title: "Mineral Oil Post 1",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, ipsum non vulputate mattis, urna velit lacinia lectus, at ultricies ligula ipsum in ex. Sed et mi id ipsum fringilla malesuada. Integer vel ipsum vel velit hendrerit gravida.",
       timestamp: "3/16/2024",
-      author: "tcoultass0",
+      author: {
+        posts: 34,
+        username: "admin",
+        joinDate: "2014-10-17",
+        avatar: "",
+        profile: "",
+        topics: 12
+      },
       views: "2454",
       replyAmount: "20",
       replies: [
@@ -68,14 +75,28 @@ const posts = {
           title: "Reply 1",
           text: "This is a reply to the post.",
           timestamp: "3/17/2024",
-          author: "ssadsaderr"
+          author: {
+            posts: 34,
+            username: "admin",
+            joinDate: "2014-10-17",
+            avatar: "",
+            profile: "",
+            topics: 12
+          }
         },
         {
           id: 2,
           title: "Reply 2",
           text: "This is a reply to the post.",
           timestamp: "3/17/2024",
-          author: "ssadsaderr"
+          author: {
+            posts: 34,
+            username: "admin",
+            joinDate: "2014-10-17",
+            avatar: "",
+            profile: "",
+            topics: 12
+          }
         }
       ]
     },
@@ -84,7 +105,14 @@ const posts = {
       title: "Mineral Oil Post 2",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, ipsum non vulputate mattis, urna velit lacinia lectus, at ultricies ligula ipsum in ex. Sed et mi id ipsum fringilla malesuada. Integer vel ipsum vel velit hendrerit gravida.",
       timestamp: "3/17/2024",
-      author: "tcoultass0",
+      author: {
+        posts: 34,
+        username: "admin",
+        joinDate: "2014-10-17",
+        avatar: "",
+        profile: "",
+        topics: 12
+      },
       views: "76",
       replyAmount: "10",
       replies: [
@@ -93,14 +121,28 @@ const posts = {
           title: "Reply 1",
           text: "This is a reply to the post.",
           timestamp: "3/17/2024",
-          author: "ssadsaderr"
+          author: {
+            posts: 34,
+            username: "admin",
+            joinDate: "2014-10-17",
+            avatar: "",
+            profile: "",
+            topics: 12
+          }
         },
         {
           id: 2,
           title: "Reply 2",
           text: "This is a reply to the post.",
           timestamp: "3/17/2024",
-          author: "asoi"
+          author: {
+            posts: 34,
+            username: "admin",
+            joinDate: "2014-10-17",
+            avatar: "",
+            profile: "",
+            topics: 12
+          }
         }
       ]
     }
@@ -111,7 +153,14 @@ const posts = {
       title: "ketorolac Tromethamine Post 1",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, ipsum non vulputate mattis, urna velit lacinia lectus, at ultricies ligula ipsum in ex. Sed et mi id ipsum fringilla malesuada. Integer vel ipsum vel velit hendrerit gravida.",
       timestamp: "3/16/2024",
-      author: "mjerzak1",
+      author: {
+        posts: 34,
+        username: "admin",
+        joinDate: "2014-10-17",
+        avatar: "",
+        profile: "",
+        topics: 12
+      },
       views: "5",
       replyAmount: "15",
       replies: [
@@ -120,14 +169,28 @@ const posts = {
           title: "Reply 1",
           text: "This is a reply to the post.",
           timestamp: "3/17/2024",
-          author: "ssadsaderr"
+          author: {
+            posts: 34,
+            username: "admin",
+            joinDate: "2014-10-17",
+            avatar: "",
+            profile: "",
+            topics: 12
+          }
         },
         {
           id: 2,
           title: "Reply 2",
           text: "This is a reply to the post.",
           timestamp: "3/17/2024",
-          author: "ase43244"
+          author: {
+            posts: 34,
+            username: "admin",
+            joinDate: "2014-10-17",
+            avatar: "",
+            profile: "",
+            topics: 12
+          }
         }
       ]
     },
@@ -136,7 +199,14 @@ const posts = {
       title: "ketorolac Tromethamine Post 2",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, ipsum non vulputate mattis, urna velit lacinia lectus, at ultricies ligula ipsum in ex. Sed et mi id ipsum fringilla malesuada. Integer vel ipsum vel velit hendrerit gravida.",
       timestamp: "3/17/2024",
-      author: "mjerzak1",
+      author: {
+        posts: 34,
+        username: "admin",
+        joinDate: "2014-10-17",
+        avatar: "",
+        profile: "",
+        topics: 12
+      },
       views: "6575",
       replyAmount: "5",
       replies: [
@@ -145,14 +215,28 @@ const posts = {
           title: "Reply 1",
           text: "This is a reply to the post.",
           timestamp: "3/17/2024",
-          author: "ssadsaderr"
+          author: {
+            posts: 34,
+            username: "admin",
+            joinDate: "2014-10-17",
+            avatar: "",
+            profile: "",
+            topics: 12
+          }
         },
         {
           id: 2,
           title: "Reply 2",
           text: "This is a reply to the post.",
           timestamp: "3/17/2024",
-          author: "ase43244"
+          author: {
+            posts: 34,
+            username: "admin",
+            joinDate: "2014-10-17",
+            avatar: "",
+            profile: "",
+            topics: 12
+          }
         }
       ]
     }

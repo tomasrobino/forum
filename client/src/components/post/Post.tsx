@@ -19,8 +19,15 @@ export function Post() {
     user: ""
   });
   const [post, setPost]: [post, Dispatch<SetStateAction<post>>] = useState<post>({
-    author: "",
-    content: "",
+    author: {
+      posts: 34,
+      username: "admin",
+      joinDate: "2014-10-17",
+      avatar: "",
+      profile: "",
+      topics: 12
+    },
+    text: "",
     id: 0,
     replies: [],
     replyAmount: 0,
@@ -31,7 +38,7 @@ export function Post() {
 
   useEffect(() => {
     const url = import.meta.env.VITE_URL;
-    //Fetching categories
+    //Fetching category
     fetch(`${url}/forum/categories`)
       .then(data => data.json())
       .then(data => {
@@ -40,6 +47,7 @@ export function Post() {
       })
       .catch(error => console.error('Error:', error))
 
+    //Fetching post
     fetch(`${url}/forum${location.pathname}`)
       .then(data => data.json())
       .then(data => setPost(data))
@@ -48,6 +56,7 @@ export function Post() {
 
   const replyArray = [];
   for (const reply of post.replies) {
+    console.log(reply.title)
     replyArray.push( <Reply title={reply.title} text={reply.text} date={reply.date} user={{
       posts: reply.author.posts,
       username: reply.author.username,
@@ -57,6 +66,14 @@ export function Post() {
       topics: reply.author.topics
     }} />);
   }
+  replyArray.splice(0, 0, <Reply title={post.title} text={post.text} date={post.timestamp} user={{
+    posts: post.author.posts,
+    username: post.author.username,
+    joinDate: post.author.joinDate,
+    avatar: post.author.avatar,
+    profile: post.author.profile,
+    topics: post.author.topics
+  }} />)
 
   return (
     <>

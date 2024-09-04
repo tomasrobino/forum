@@ -20,9 +20,9 @@ export interface reply {
 export interface post {
   id: number
   title: string,
-  content: string,
+  text: string,
   timestamp: string,
-  author: string,
+  author: user,
   views: number,
   replyAmount: number,
   replies: reply[]
