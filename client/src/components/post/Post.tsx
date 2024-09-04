@@ -6,7 +6,7 @@ import {useLocation} from "react-router-dom";
 
 
 export function Post() {
-  const location = useLocation();
+  const location   = useLocation();
   const [parentCategory, setParentCategory]: [category, Dispatch<SetStateAction<category>>] = useState<category>({
     desc: "",
     lastPost: "",
@@ -47,7 +47,7 @@ export function Post() {
 
   return (
     <>
-      <PostHeader category={parentCategory.title} iconColor={""} icon={""} title={""} description={""} topicAmount={1} postAmount={1} />
+      <PostHeader categoryURL={parentCategory.urlName} category={parentCategory.title} iconColor={""} icon={""} title={post.title} replies={344} posts={12342} />
       <PostMenuBar />
     </>
   );

@@ -10,27 +10,8 @@
     margin-top: 3vh;
 }
 
-.titleNImg {
-    display: flex;
-    align-items: center;
-}
-
-.iconBox {
-    height: 40px;
-    width: 40px;
-    border-radius: 5px;
-}
-
 .title {
-    margin-left: 10px;
-    font-size: 2em;
-}
-
-.description {
-    width: fit-content;
-    border-bottom: 2px solid grey;
-    color: lightgray;
-    padding-bottom: 10px;
+    font-size: 1.7em;
 }
 
 .quantities {
