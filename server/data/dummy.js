@@ -57,7 +57,7 @@ const posts = {
     {
       id: "1",
       title: "Mineral Oil Post 1",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, ipsum non vulputate mattis, urna velit lacinia lectus, at ultricies ligula ipsum in ex. Sed et mi id ipsum fringilla malesuada. Integer vel ipsum vel velit hendrerit gravida.",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras condimentum pharetra mi, ac porta magna luctus eget. Etiam ac vulputate ante, laoreet pharetra odio. Pellentesque tincidunt diam eu nisi volutpat rutrum. Sed sit amet odio at tortor ultricies malesuada. Praesent mollis, est quis rutrum feugiat, dolor mauris ornare magna, a iaculis orci risus dictum dui. Suspendisse hendrerit nibh elit, sit amet consectetur leo dapibus in. Morbi eu lacinia justo. Cras quis massa turpis. Donec lacinia quam non sem egestas vestibulum. Maecenas quam lacus, commodo non ex id, tempus dapibus orci. Cras at nisl tempus, elementum enim id, bibendum lectus. Praesent tincidunt eu sem ut blandit. Aenean eu aliquam risus.",
       timestamp: "3/16/2024",
       author: {
         posts: 34,
@@ -73,7 +73,7 @@ const posts = {
         {
           id: 1,
           title: "Reply 1",
-          text: "This is a reply to the post.",
+          text: "In hac habitasse platea dictumst. Sed dapibus ex non mi suscipit facilisis. Proin nec dui nunc. Etiam vitae turpis neque. Donec pretium accumsan metus at suscipit. Aliquam eu diam nibh. Integer efficitur nisi non convallis fringilla. Integer vel tempus tellus, id elementum sem. Mauris non aliquet nibh, id sodales purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu aliquam ante, mattis porttitor ipsum.",
           timestamp: "3/17/2024",
           author: {
             posts: 34,
@@ -87,7 +87,7 @@ const posts = {
         {
           id: 2,
           title: "Reply 2",
-          text: "This is a reply to the post.",
+          text: "Praesent sagittis, eros at gravida ultrices, nulla mi lacinia est, ac feugiat dui nibh consequat odio. Vestibulum accumsan faucibus lectus eget laoreet. Praesent nec blandit sapien. Cras dignissim blandit massa, id vestibulum erat placerat eget. Quisque tincidunt erat tellus, et viverra neque efficitur in. Vestibulum gravida est ut enim placerat aliquam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam diam lorem, euismod a dolor vel, consequat egestas dolor. Suspendisse scelerisque imperdiet aliquam. Aenean nec condimentum leo. Etiam aliquam ac eros eu suscipit. Etiam at eros nibh. Donec dignissim ac turpis ut sagittis. Integer sit amet venenatis dui. In a magna facilisis, malesuada velit in, elementum leo. Aenean placerat ante nisi, eu interdum nunc pellentesque vitae.",
           timestamp: "3/17/2024",
           author: {
             posts: 34,
