@@ -1,5 +1,11 @@
 const {categories, posts} = require("../data/dummy");
+const mongoose = require("mongoose");
 
+
+main().catch((err) => console.log(err));
+async function main() {
+  await mongoose.connect(process.env.MONGODB);
+}
 function getCategory(req, res) {
   res.send(DBCategoryData(req.params.cat));
 }
