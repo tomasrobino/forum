@@ -57,8 +57,7 @@ export function Post() {
 
   const replyArray = [];
   for (const reply of post.replies) {
-    console.log(reply.title)
-    replyArray.push( <Reply title={reply.title} text={reply.text} date={reply.timestamp} user={{
+    replyArray.push( <Reply text={reply.text} date={reply.timestamp} user={{
       posts: reply.author.posts,
       username: reply.author.username,
       joinDate: reply.author.joinDate,

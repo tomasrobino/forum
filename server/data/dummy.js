@@ -72,7 +72,6 @@ const posts = {
       replies: [
         {
           id: 1,
-          title: "Reply 1",
           text: "In hac habitasse platea dictumst. Sed dapibus ex non mi suscipit facilisis. Proin nec dui nunc. Etiam vitae turpis neque. Donec pretium accumsan metus at suscipit. Aliquam eu diam nibh. Integer efficitur nisi non convallis fringilla. Integer vel tempus tellus, id elementum sem. Mauris non aliquet nibh, id sodales purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu aliquam ante, mattis porttitor ipsum.",
           timestamp: "3/17/2024",
           author: {
@@ -86,7 +85,6 @@ const posts = {
         },
         {
           id: 2,
-          title: "Reply 2",
           text: "Praesent sagittis, eros at gravida ultrices, nulla mi lacinia est, ac feugiat dui nibh consequat odio. Vestibulum accumsan faucibus lectus eget laoreet. Praesent nec blandit sapien. Cras dignissim blandit massa, id vestibulum erat placerat eget. Quisque tincidunt erat tellus, et viverra neque efficitur in. Vestibulum gravida est ut enim placerat aliquam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam diam lorem, euismod a dolor vel, consequat egestas dolor. Suspendisse scelerisque imperdiet aliquam. Aenean nec condimentum leo. Etiam aliquam ac eros eu suscipit. Etiam at eros nibh. Donec dignissim ac turpis ut sagittis. Integer sit amet venenatis dui. In a magna facilisis, malesuada velit in, elementum leo. Aenean placerat ante nisi, eu interdum nunc pellentesque vitae.",
           timestamp: "3/17/2024",
           author: {
@@ -118,7 +116,6 @@ const posts = {
       replies: [
         {
           id: 1,
-          title: "Reply 1",
           text: "This is a reply to the post.",
           timestamp: "3/17/2024",
           author: {
@@ -132,7 +129,6 @@ const posts = {
         },
         {
           id: 2,
-          title: "Reply 2",
           text: "This is a reply to the post.",
           timestamp: "3/17/2024",
           author: {
@@ -166,7 +162,6 @@ const posts = {
       replies: [
         {
           id: 1,
-          title: "Reply 1",
           text: "This is a reply to the post.",
           timestamp: "3/17/2024",
           author: {
@@ -180,7 +175,6 @@ const posts = {
         },
         {
           id: 2,
-          title: "Reply 2",
           text: "This is a reply to the post.",
           timestamp: "3/17/2024",
           author: {
@@ -212,7 +206,6 @@ const posts = {
       replies: [
         {
           id: 1,
-          title: "Reply 1",
           text: "This is a reply to the post.",
           timestamp: "3/17/2024",
           author: {
@@ -226,7 +219,6 @@ const posts = {
         },
         {
           id: 2,
-          title: "Reply 2",
           text: "This is a reply to the post.",
           timestamp: "3/17/2024",
           author: {
