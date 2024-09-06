@@ -5,6 +5,7 @@ const mongoose = require("mongoose").default;
 main().catch((err) => console.log(err));
 async function main() {
   await mongoose.connect(process.env.MONGODB);
+  console.log("DB connection status: "+ mongoose.connection.readyState);
 }
 
 function getAllCategories(req, res) {
