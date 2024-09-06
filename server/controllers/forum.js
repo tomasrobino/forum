@@ -6,6 +6,11 @@ main().catch((err) => console.log(err));
 async function main() {
   await mongoose.connect(process.env.MONGODB);
 }
+
+function getAllCategories(req, res) {
+  res.send(categories);
+}
+
 function getCategory(req, res) {
   res.send(DBCategoryData(req.params.cat));
 }
@@ -35,6 +40,7 @@ function getSinglePost(req, res) {
 }
 
 module.exports = {
+  getAllCategories,
   getCategory,
   getPosts,
   getSinglePost
