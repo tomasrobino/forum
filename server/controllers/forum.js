@@ -1,5 +1,5 @@
 const {categories, posts} = require("../data/dummy");
-const mongoose = require("mongoose");
+const mongoose = require("mongoose").default;
 
 
 main().catch((err) => console.log(err));
