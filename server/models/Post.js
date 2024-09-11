@@ -3,6 +3,7 @@ const {ReplySchema} = require("./Reply");
 
 const postSchema = new Schema({
   _id: Schema.Types.ObjectId,
+  category: Schema.Types.ObjectId,
   title: String,
   text: String,
   timestamp: String,
