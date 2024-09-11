@@ -1,16 +1,16 @@
-import {model, Schema} from "mongoose";
-import {ObjectId} from "mongodb";
-import Post from "./Post";
+const {model, Schema} = require("mongoose");
+const {ObjectId} = require("mongodb");
+const {PostSchema} = require("./Post");
 
 const categorySchema = new Schema({
   _id: ObjectId,
   urlName: String,
   title: String,
   description: String,
-  posts: [Post]
+  posts: [PostSchema]
 });
 
-const Category = model('Blog', categorySchema);
+const Category = model('Category', categorySchema);
 module.exports = {
   Category: Category
 }

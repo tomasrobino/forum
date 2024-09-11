@@ -1,5 +1,5 @@
-import {model, Schema} from "mongoose";
-import {ObjectId} from "mongodb";
+const {model, Schema} = require("mongoose");
+const {ObjectId} = require("mongodb");
 
 const replySchema = new Schema({
   _id: ObjectId,
@@ -10,5 +10,6 @@ const replySchema = new Schema({
 
 const Reply = model('Reply', replySchema);
 module.exports = {
+  ReplySchema: replySchema,
   Reply: Reply
 }
