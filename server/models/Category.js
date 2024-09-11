@@ -1,9 +1,8 @@
 const {model, Schema} = require("mongoose");
-const {ObjectId} = require("mongodb");
 const {PostSchema} = require("./Post");
 
 const categorySchema = new Schema({
-  _id: ObjectId,
+  _id: Schema.Types.ObjectId,
   urlName: String,
   title: String,
   description: String,

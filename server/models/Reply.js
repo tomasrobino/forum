@@ -1,8 +1,7 @@
 const {model, Schema} = require("mongoose");
-const {ObjectId} = require("mongodb");
 
 const replySchema = new Schema({
-  _id: ObjectId,
+  _id: Schema.Types.ObjectId,
   text: String,
   timestamp: String,
   author: String,
