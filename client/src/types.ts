@@ -1,6 +1,6 @@
 export interface category {
   title: string,
-  desc: string,
+  description: string,
   lastPost: string,
   timestamp: string,
   user: string,

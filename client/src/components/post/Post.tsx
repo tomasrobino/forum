@@ -10,7 +10,7 @@ import {Reply} from "./Reply.tsx";
 export function Post() {
   const location   = useLocation();
   const [parentCategory, setParentCategory]: [category, Dispatch<SetStateAction<category>>] = useState<category>({
-    desc: "",
+    description: "",
     lastPost: "",
     posts: 0,
     timestamp: "",

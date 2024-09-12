@@ -19,7 +19,7 @@ export default function Dashboard() {
     categories.push(<ForumItem
       url={categoriesData[i].urlName}
       title={categoriesData[i].title}
-      description={categoriesData[i].desc}
+      description={categoriesData[i].description}
       user={categoriesData[i].user}
       timestamp={categoriesData[i].timestamp}
       lastPost={categoriesData[i].lastPost}

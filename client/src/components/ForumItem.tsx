@@ -18,7 +18,7 @@ export default function ForumItem(props: {isCategory?: boolean, url: string, las
           </div>
           <div className={`${styles.square}`} >
             <p className={styles.amount}>{props.secondAmount}</p>
-            <p className={styles.squareTitle}>{props.isCategory? "topics" : "replies"}</p>
+            <p className={styles.squareTitle}>{props.isCategory? "posts" : "replies"}</p>
           </div>
         </div>
         <div className={styles.lastPost}>
