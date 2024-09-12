@@ -1,4 +1,5 @@
 export interface category {
+  _id: string,
   title: string,
   description: string,
   lastPost: string,
@@ -13,11 +14,11 @@ export interface reply {
   text: string,
   timestamp: string,
   author: user,
-  id: number
+  _id: string
 }
 
 export interface post {
-  id: number
+  _id: string
   title: string,
   text: string,
   timestamp: string,
@@ -25,6 +26,7 @@ export interface post {
   views: number,
   replyAmount: number,
   replies: reply[]
+  category: string
 }
 
 export interface user {

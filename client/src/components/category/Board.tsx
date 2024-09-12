@@ -27,9 +27,9 @@ export function Board() {
   const posts = [];
   for (let i = 0; i < postsData.length; i++) {
     posts.push(<ForumItem
-      url={postsData[i].id.toString()}
+      url={postsData[i]._id.toString()}
       title={postsData[i].title}
-      user={postsData[i].author}
+      user={postsData[i].author.username}
       timestamp={postsData[i].timestamp}
       lastPost={"fdsuilfmlndsbofoiushlifu  kudsy fdslñ fjls fdsgi fpds lgfsdy  fuif lhds f dsfh"} //TODO: Get last post
       firstAmount={postsData[i].views}

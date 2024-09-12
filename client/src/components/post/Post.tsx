@@ -10,6 +10,7 @@ import {Reply} from "./Reply.tsx";
 export function Post() {
   const location   = useLocation();
   const [parentCategory, setParentCategory]: [category, Dispatch<SetStateAction<category>>] = useState<category>({
+    _id: "",
     description: "",
     lastPost: "",
     posts: 0,
@@ -29,12 +30,13 @@ export function Post() {
       topics: 12
     },
     text: "",
-    id: 0,
+    _id: "",
     replies: [],
     replyAmount: 0,
     timestamp: "",
     title: "",
-    views: 0
+    views: 0,
+    category: ""
   })
 
   useEffect(() => {
