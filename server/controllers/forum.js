@@ -27,18 +27,21 @@ async function main() {
 }
 
 async function getAllCategories(req, res) {
-  res.send(await Category.find({}));
+  const categories = await Category.find({});
+  if (!categories || categories.length === 0) res.status(404).send({"error": "Categories not found"});
+  res.send(categories);
 }
 
 async function getCategory(req, res) {
-  res.send( await Category.findOne({ urlName: req.params.cat }) );
+  const category = await Category.findOne({ urlName: req.params.cat });
+  if (!category) res.status(404).send({"error": "Category not found"});
+  res.send( category );
 }
 
 async function getPosts(req, res) {
   const category = await Category.findOne({ urlName: req.params.cat });
-  console.log(category._id)
+  if (!category) res.status(404).send({"error": "Invalid category"});
   const posts = await Post.find({ category: new ObjectId(category._id) });
-  console.log(posts)
   res.send( posts );
 }
 
