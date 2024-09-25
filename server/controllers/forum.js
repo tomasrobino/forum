@@ -28,9 +28,9 @@ async function getAllCategories(req, res) {
   res.send(await Category.find({}));
 }
 
-function getCategory(req, res) {
+async function getCategory(req, res) {
   // TODO: Implement real db connection
-  res.send(categories.find(cat => cat.urlName === req.params.cat));
+  res.send( await Category.find({ urlName: req.params.cat }) );
 }
 
 function getPosts(req, res) {
