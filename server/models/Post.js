@@ -6,7 +6,7 @@ const postSchema = new Schema({
   category: Schema.Types.ObjectId,
   title: String,
   text: String,
-  timestamp: String,
+  timestamp: Date,
   author: String,
   views: Number,
   replyAmount: Number,
