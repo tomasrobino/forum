@@ -1,6 +1,5 @@
-const {categories, posts} = require("../data/dummy");
+const {posts} = require("../data/dummy");
 const {Category} = require("../models/Category");
-const {Post} = require("../models/Post");
 const mongoose = require("mongoose").default;
 
 
@@ -30,13 +29,8 @@ async function getAllCategories(req, res) {
 }
 
 function getCategory(req, res) {
-  res.send(DBCategoryData(req.params.cat));
-}
-
-
-function DBCategoryData(category) {
   // TODO: Implement real db connection
-  return categories.find(cat => cat.urlName === category);
+  res.send(req.params.cat.find(cat => cat.urlName === req.params.cat));
 }
 
 function getPosts(req, res) {
