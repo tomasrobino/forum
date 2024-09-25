@@ -45,16 +45,10 @@ async function getPosts(req, res) {
   res.send( posts );
 }
 
-function getSinglePost(req, res) {
-  // TODO: Implement real db connection
-  for (const postArray of Object.values(posts)) {
-    const post = postArray.find(post => post.id === req.params.id)
-    if (post) {
-      res.send(post);
-      return;
-    }
-  }
-  res.status(404).send({"error":"Post not found"});
+async function getSinglePost(req, res) {
+  const post = await Post.findById(req.params.id);
+  if (!post) res.status(404).send({"error":"Post not found"});
+  res.send(post);
 }
 
 module.exports = {
