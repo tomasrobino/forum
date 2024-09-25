@@ -6,12 +6,11 @@ const postSchema = new Schema({
   category: Schema.Types.ObjectId,
   title: String,
   text: String,
-  timestamp: Date,
   author: String,
   views: Number,
   replyAmount: Number,
   replies: [ReplySchema]
-});
+}, { timestamps: true });
 
 const Post = model('Post', postSchema);
 module.exports = {
