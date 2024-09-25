@@ -1,5 +1,7 @@
 const {posts, categories} = require("../data/dummy");
 const {Category} = require("../models/Category");
+const {Post} = require("../models/Post");
+const {ObjectId} = require("mongodb");
 const mongoose = require("mongoose").default;
 
 
@@ -29,14 +31,15 @@ async function getAllCategories(req, res) {
 }
 
 async function getCategory(req, res) {
-  // TODO: Implement real db connection
-  res.send( await Category.find({ urlName: req.params.cat }) );
+  res.send( await Category.findOne({ urlName: req.params.cat }) );
 }
 
-function getPosts(req, res) {
-  // TODO: Implement real db connection
-  const category = Object.keys(posts).find(post => post === req.params.cat);
-  res.send( posts[category] );
+async function getPosts(req, res) {
+  const category = await Category.findOne({ urlName: req.params.cat });
+  console.log(category._id)
+  const posts = await Post.find({ category: new ObjectId(category._id) });
+  console.log(posts)
+  res.send( posts );
 }
 
 function getSinglePost(req, res) {
