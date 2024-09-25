@@ -14,7 +14,7 @@ export function Post() {
     description: "",
     lastPost: "",
     posts: 0,
-    timestamp: "",
+    timestamp: new Date(),
     title: "",
     topics: 0,
     urlName: "",
@@ -24,7 +24,7 @@ export function Post() {
     author: {
       posts: 34,
       username: "admin",
-      joinDate: "2014-10-17",
+      createdAt: new Date(),
       avatar: "",
       profile: "",
       topics: 12
@@ -33,7 +33,8 @@ export function Post() {
     _id: "",
     replies: [],
     replyAmount: 0,
-    timestamp: "",
+    updatedAt: new Date(),
+    createdAt: new Date(),
     title: "",
     views: 0,
     category: ""
@@ -59,19 +60,19 @@ export function Post() {
 
   const replyArray = [];
   for (const reply of post.replies) {
-    replyArray.push( <Reply text={reply.text} date={reply.timestamp} user={{
+    replyArray.push( <Reply text={reply.text} date={reply.createdAt} user={{
       posts: reply.author.posts,
       username: reply.author.username,
-      joinDate: reply.author.joinDate,
+      createdAt: reply.author.createdAt,
       avatar: reply.author.avatar,
       profile: reply.author.profile,
       topics: reply.author.topics
     }} />, <hr className={styles.hr}/>);
   }
-  replyArray.splice(0, 0, <Reply title={post.title} text={post.text} date={post.timestamp} user={{
+  replyArray.splice(0, 0, <Reply title={post.title} text={post.text} date={post.createdAt} user={{
     posts: post.author.posts,
     username: post.author.username,
-    joinDate: post.author.joinDate,
+    createdAt: post.author.createdAt,
     avatar: post.author.avatar,
     profile: post.author.profile,
     topics: post.author.topics

@@ -3,7 +3,7 @@ export interface category {
   title: string,
   description: string,
   lastPost: string,
-  timestamp: string,
+  timestamp: Date,
   user: string,
   topics: number,
   posts: number
@@ -12,7 +12,8 @@ export interface category {
 
 export interface reply {
   text: string,
-  timestamp: string,
+  createdAt: Date,
+  updatedAt: Date,
   author: user,
   _id: string
 }
@@ -21,7 +22,8 @@ export interface post {
   _id: string
   title: string,
   text: string,
-  timestamp: string,
+  createdAt: Date,
+  updatedAt: Date,
   author: user,
   views: number,
   replyAmount: number,
@@ -36,5 +38,5 @@ export interface user {
   posts: number,
   topics: number,
   profile: string
-  joinDate: string
+  createdAt: Date
 }
