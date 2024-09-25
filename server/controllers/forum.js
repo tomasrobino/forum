@@ -1,4 +1,6 @@
 const {categories, posts} = require("../data/dummy");
+const {Category} = require("../models/Category");
+const {Post} = require("../models/Post");
 const mongoose = require("mongoose").default;
 
 
@@ -6,10 +8,25 @@ main().catch((err) => console.log(err));
 async function main() {
   await mongoose.connect(process.env.MONGODB);
   console.log("DB connection status: "+ mongoose.connection.readyState);
+  /*
+  const categories = await Category.find({});
+  for (let i = 0; i < categories.length; i++) {
+    let counter = 0;
+    const id = categories[i]._id;
+    const posts = await Post.find({ category: id });
+    counter += posts.length;
+    for (const post of posts) {
+      counter+= post.replies.length;
+    }
+    console.log(await Category.findByIdAndUpdate(id, { posts: counter }))
+  }
+  console.log("finished")
+
+   */
 }
 
-function getAllCategories(req, res) {
-  res.send(categories);
+async function getAllCategories(req, res) {
+  res.send(await Category.find({}));
 }
 
 function getCategory(req, res) {
