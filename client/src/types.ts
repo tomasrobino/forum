@@ -14,7 +14,7 @@ export interface reply {
   text: string,
   createdAt: Date,
   updatedAt: Date,
-  author: user,
+  author: string,
   _id: string
 }
 
@@ -24,7 +24,7 @@ export interface post {
   text: string,
   createdAt: Date,
   updatedAt: Date,
-  author: user,
+  author: string,
   views: number,
   replyAmount: number,
   replies: reply[]

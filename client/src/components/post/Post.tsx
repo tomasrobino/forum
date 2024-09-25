@@ -21,14 +21,7 @@ export function Post() {
     user: ""
   });
   const [post, setPost]: [post, Dispatch<SetStateAction<post>>] = useState<post>({
-    author: {
-      posts: 34,
-      username: "admin",
-      createdAt: new Date(),
-      avatar: "",
-      profile: "",
-      topics: 12
-    },
+    author: "",
     text: "",
     _id: "",
     replies: [],
@@ -60,23 +53,9 @@ export function Post() {
 
   const replyArray = [];
   for (const reply of post.replies) {
-    replyArray.push( <Reply text={reply.text} date={reply.createdAt} user={{
-      posts: reply.author.posts,
-      username: reply.author.username,
-      createdAt: reply.author.createdAt,
-      avatar: reply.author.avatar,
-      profile: reply.author.profile,
-      topics: reply.author.topics
-    }} />, <hr className={styles.hr}/>);
+    replyArray.push( <Reply text={reply.text} date={reply.createdAt} author={reply.author} />, <hr className={styles.hr}/>);
   }
-  replyArray.splice(0, 0, <Reply title={post.title} text={post.text} date={post.createdAt} user={{
-    posts: post.author.posts,
-    username: post.author.username,
-    createdAt: post.author.createdAt,
-    avatar: post.author.avatar,
-    profile: post.author.profile,
-    topics: post.author.topics
-  }} />, <hr className={styles.hr}/>);
+  replyArray.splice(0, 0, <Reply title={post.title} text={post.text} date={post.createdAt} author={post.author} />, <hr className={styles.hr}/>);
 
   return (
     <>
