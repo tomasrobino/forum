@@ -54,7 +54,7 @@ async function getPosts(req, res) {
     }
     modifiedPosts.push({...post._doc, replies: modifiedReplies, createdAt: post.createdAt.toJSON(), updatedAt: post.updatedAt.toJSON()});
   }
-  res.send( posts );
+  res.send( modifiedPosts );
 }
 
 async function getSinglePost(req, res) {
