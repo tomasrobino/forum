@@ -1,6 +1,6 @@
 import styles from './ForumItem.module.css'
 import {Link} from "react-router-dom";
-export default function ForumItem(props: {isCategory?: boolean, url: string, lastPost: string, timestamp: Date, user: string, firstAmount: number, secondAmount: number, title: string, description?: string}) {
+export default function ForumItem(props: {isCategory?: boolean, url: string, lastPost: string, timestamp: string, user: string, firstAmount: number, secondAmount: number, title: string, description?: string}) {
   let dateString;
   if (props.timestamp) {
     const timestamp = new Date(props.timestamp)
