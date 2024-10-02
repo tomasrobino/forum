@@ -47,6 +47,11 @@ a:hover {
 
 .title {
     font-size: 1.3em;
+    display: -webkit-box;
+    width: 550px;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .description {
