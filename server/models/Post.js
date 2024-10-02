@@ -10,7 +10,7 @@ const postSchema = new Schema({
   views: Number,
   replyAmount: Number,
   replies: [ReplySchema]
-}, { timestamps: true });
+}, { timestamps: true, versionKey: false });
 
 const Post = model('Post', postSchema);
 module.exports = {

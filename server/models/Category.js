@@ -8,7 +8,7 @@ const categorySchema = new Schema({
   posts: Number,
   topics: Number,
   timestamp: Schema.Types.Date
-});
+}, { versionKey: false });
 
 const Category = model('Category', categorySchema);
 module.exports = {

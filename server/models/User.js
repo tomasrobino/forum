@@ -7,7 +7,7 @@ const userSchema = new Schema({
     avatar: Schema.Types.Buffer,
     posts: Number,
     topics: Number,
-}, { timestamps: true });
+}, { timestamps: true, versionKey: false });
 
 const User = model('User', userSchema);
 module.exports = {

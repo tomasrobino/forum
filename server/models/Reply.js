@@ -4,7 +4,7 @@ const replySchema = new Schema({
   _id: Schema.Types.ObjectId,
   text: String,
   author: String,
-}, { timestamps: true });
+}, { timestamps: true, versionKey: false });
 
 const Reply = model('Reply', replySchema);
 module.exports = {
