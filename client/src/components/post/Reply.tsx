@@ -2,7 +2,7 @@ import styles from "./Reply.module.css"
 import {user} from "../../types.ts";
 import {useEffect, useState} from "react";
 
-export function Reply(props: {quote?: { author: string, text: string }, title?: string, text: string, date: string, author: string}) {
+export function Reply(props: {quote?: { author: string, text: string }, text: string, date: string, author: string}) {
   const [user, setUser] = useState<user>({
     avatar: "",
     createdAt: "",
@@ -40,7 +40,6 @@ export function Reply(props: {quote?: { author: string, text: string }, title?: 
         <div className={styles.textPanel}>
           <div className={styles.bar}>
             <p className={styles.date}>{formattedDate}</p>
-            {props.title? <p className={styles.title}>{props.title}</p> : null}
           </div>
           {props.quote?
             <div className={styles.quoteBox}>

@@ -55,7 +55,7 @@ export function Post() {
   for (const reply of post.replies) {
     replyArray.push( <Reply text={reply.text} date={reply.createdAt} author={reply.author} />, <hr className={styles.hr}/>);
   }
-  replyArray.splice(0, 0, <Reply title={post.title} text={post.text} date={post.createdAt} author={post.author} />, <hr className={styles.hr}/>);
+  replyArray.splice(0, 0, <Reply text={post.text} date={post.createdAt} author={post.author} />, <hr className={styles.hr}/>);
 
   return (
     <>
