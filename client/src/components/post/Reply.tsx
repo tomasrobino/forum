@@ -12,6 +12,13 @@ export function Reply(props: {quote?: { author: string, text: string }, title?: 
     username: ""
   });
 
+  function formateDate(date: string) {
+    const objectDate = new Date(date);
+    return `${objectDate.getUTCDate()}/${objectDate.getUTCMonth() + 1}/${objectDate.getUTCFullYear()}`;
+  }
+
+  const formattedDate = formateDate(props.date);
+
   useEffect(() => {
     const url = import.meta.env.VITE_URL;
     //Fetching user
@@ -32,7 +39,7 @@ export function Reply(props: {quote?: { author: string, text: string }, title?: 
         </div>
         <div className={styles.textPanel}>
           <div className={styles.bar}>
-            <p className={styles.date}>{props.date}</p>
+            <p className={styles.date}>{formattedDate}</p>
             {props.title? <p className={styles.title}>{props.title}</p> : null}
           </div>
           {props.quote?
