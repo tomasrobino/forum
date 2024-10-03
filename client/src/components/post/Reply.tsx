@@ -7,7 +7,6 @@ export function Reply(props: {quote?: { author: string, text: string }, text: st
     avatar: "",
     createdAt: "",
     posts: 0,
-    profile: "",
     topics: 0,
     username: ""
   });
