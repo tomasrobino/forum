@@ -1,8 +1,6 @@
-const {posts, categories} = require("../data/dummy");
 const {Category} = require("../models/Category");
 const {Post} = require("../models/Post");
 const {ObjectId} = require("mongodb");
-const {Reply} = require("../models/Reply");
 const mongoose = require("mongoose").default;
 
 

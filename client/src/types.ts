@@ -37,6 +37,5 @@ export interface user {
   avatar: string,
   posts: number,
   topics: number,
-  profile: string
   createdAt: string
 }
