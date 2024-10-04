@@ -3,11 +3,12 @@ import {MenuBar} from "../MenuBar.tsx";
 import {PostHeader} from "./PostHeader.tsx";
 import {Dispatch, ReactElement, SetStateAction, useEffect, useState} from "react";
 import {category, post} from "../../types.ts";
-import {useLocation} from "react-router-dom";
+import {useLocation, useSearchParams} from "react-router-dom";
 import {Reply} from "./Reply.tsx";
 
 
 export function Post() {
+  const [params, _setParams] = useSearchParams();
   const location   = useLocation();
   const [parentCategory, setParentCategory]: [category, Dispatch<SetStateAction<category>>] = useState<category>({
     _id: "",
@@ -52,15 +53,24 @@ export function Post() {
   }, [])
 
   const replyArray = Array<ReactElement>();
-  for (const reply of post.replies) {
-    replyArray.push( <Reply text={reply.text} date={reply.createdAt} author={reply.author} key={reply._id} />);
-  }
   replyArray.splice(0, 0, <Reply text={post.text} date={post.createdAt} author={post.author} key={post._id} />);
+  if (params.get("select")==="newest") {
+    for (let i = post.replies.length-1; i >= 0; i--) {
+      const reply = post.replies[i];
+      replyArray.push( <Reply text={reply.text} date={reply.createdAt} author={reply.author} key={reply._id} />);
+    }
+  } else {
+    for (let i = 0; i < post.replies.length; i++) {
+      const reply = post.replies[i];
+      replyArray.push( <Reply text={reply.text} date={reply.createdAt} author={reply.author} key={reply._id} />);
+    }
+  }
+
 
   return (
     <>
       <PostHeader categoryURL={parentCategory.urlName} category={parentCategory.title} iconColor={""} icon={""} title={post.title} replies={344} posters={23} />
-      <MenuBar options={[{value: "newest", name: "Newest"}, {value: "oldest", name: "Oldest"}]} />
+      <MenuBar options={[{value: "oldest", name: "Oldest"}, {value: "newest", name: "Newest"}]} />
       {post._id!==""? replyArray : null}
     </>
   );
