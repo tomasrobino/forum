@@ -21,10 +21,18 @@ export function Reply(props: {quote?: { author: string, text: string }, text: st
   useEffect(() => {
     const url = import.meta.env.VITE_URL;
     //Fetching user
-    fetch(`${url}/forum/users/${props.author}`)
-        .then(data => data.json())
-        .then(data => setUser(data))
-        .catch(error => console.error('Error:', error))
+    try {
+      fetch(`${url}/forum/users/${props.author}`)
+          .then(data => {
+            if (data.ok) {
+              return data.json();
+            } else throw new Error("Could not fetch reply");
+          })
+          .then(data => setUser(data))
+          .catch(error => console.error('Error:', error))
+    } catch (e) {
+      console.log("Error: can't fetch user");
+    }
   }, []);
 
   return (
