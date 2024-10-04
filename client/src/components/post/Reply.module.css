@@ -21,6 +21,8 @@
 }
 
 .user {
+    width: 100%;
+    overflow-wrap: break-word;
     text-align: center;
     font-size: 1.5em;
 }
