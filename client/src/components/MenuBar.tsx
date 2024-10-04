@@ -22,6 +22,10 @@ export function MenuBar(props: { options: Array<{value: string, name: string}>})
         className={styles.button}
         value={selectedValue}
         onChange={handleChange}
+        variant={'outlined'}
+        MenuProps={{
+            disableScrollLock: true,
+        }}
       >
         {...optionsArray}
       </Select>
