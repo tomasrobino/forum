@@ -13,6 +13,7 @@ export function Reply(props: {quote?: { author: string, text: string }, text: st
 
   function formatDate(date: string) {
     const objectDate = new Date(date);
+    if (isNaN(objectDate.getUTCDate())) return "Unknown";
     return `${objectDate.getUTCDate()}/${objectDate.getUTCMonth() + 1}/${objectDate.getUTCFullYear()}`;
   }
 
@@ -41,7 +42,7 @@ export function Reply(props: {quote?: { author: string, text: string }, text: st
           <div className={styles.profilePicture}></div>
           <p className={styles.user}>{user.username}</p>
           <div className={styles.datapoint}><p className={styles.dataTitle}>joined:</p> <p
-              className={styles.userData}>{user.createdAt}</p></div>
+              className={styles.userData}>{formatDate(user.createdAt) || ""}</p></div>
           <div className={styles.datapoint}><p className={styles.dataTitle}>posts:</p> <p
               className={styles.userData}>{user.posts}</p></div>
         </div>
