@@ -11,12 +11,12 @@ export function Reply(props: {quote?: { author: string, text: string }, text: st
     username: ""
   });
 
-  function formateDate(date: string) {
+  function formatDate(date: string) {
     const objectDate = new Date(date);
     return `${objectDate.getUTCDate()}/${objectDate.getUTCMonth() + 1}/${objectDate.getUTCFullYear()}`;
   }
 
-  const formattedDate = formateDate(props.date);
+  const formattedDate = formatDate(props.date);
 
   useEffect(() => {
     const url = import.meta.env.VITE_URL;
