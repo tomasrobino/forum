@@ -44,6 +44,7 @@ label {
 .forgotten {
     text-decoration: underline;
     display: block;
+    text-align: start;
 }
 
 button {
