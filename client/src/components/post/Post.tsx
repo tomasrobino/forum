@@ -53,13 +53,14 @@ export function Post() {
   }, [])
 
   const replyArray = Array<ReactElement>();
-  replyArray.splice(0, 0, <Reply text={post.text} date={post.createdAt} author={post.author} key={post._id} />);
   if (params.get("select")==="newest") {
     for (let i = post.replies.length-1; i >= 0; i--) {
       const reply = post.replies[i];
       replyArray.push( <Reply text={reply.text} date={reply.createdAt} author={reply.author} key={reply._id} />);
     }
+    replyArray.push(<Reply text={post.text} date={post.createdAt} author={post.author} key={post._id} />);
   } else {
+    replyArray.push(<Reply text={post.text} date={post.createdAt} author={post.author} key={post._id} />);
     for (let i = 0; i < post.replies.length; i++) {
       const reply = post.replies[i];
       replyArray.push( <Reply text={reply.text} date={reply.createdAt} author={reply.author} key={reply._id} />);
