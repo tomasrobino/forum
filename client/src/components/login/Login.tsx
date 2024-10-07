@@ -8,11 +8,11 @@ export function Login() {
             <form >
                 <div className={styles.group}>
                     <label htmlFor="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="Email"/>
+                    <input required type="email" id="email" name="email" placeholder="Email"/>
                 </div>
                 <div className={styles.group}>
                     <label htmlFor="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="Password"/>
+                    <input required type="password" id="password" name="password" placeholder="Password"/>
                     <Link className={styles.forgotten} to="/recover-password">Forgot password?</Link>
                 </div>
                 <button type="submit">Login</button>
