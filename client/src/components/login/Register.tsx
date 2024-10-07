@@ -44,7 +44,7 @@ export function Register() {
                     <input onChange={handleInput} value={inputs.password || ""} required type="password" id="password" name="password" placeholder="Password"/>
                     <p className={styles.hint}>At least 6 characters.</p>
                 </div>
-                <button type="submit">Register</button>
+                <button className={styles.button} type="submit">Register</button>
             </form>
         </div>
     );

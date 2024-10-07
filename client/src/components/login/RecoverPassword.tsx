@@ -32,7 +32,7 @@ export function RecoverPassword() {
                     <label htmlFor="email">Email</label>
                     <input onChange={handleInput} value={inputs.email || ""} required type="email" id="email" name="email" placeholder="Email"/>
                 </div>
-                <button style={{ marginTop: "30px" }} type="submit">Recover Password</button>
+                <button className={styles.button} style={{ marginTop: "30px" }} type="submit">Recover Password</button>
             </form>
         </div>
     );

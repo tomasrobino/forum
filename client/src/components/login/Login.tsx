@@ -39,7 +39,7 @@ export function Login() {
                     <input onChange={handleInput} value={inputs.password || ""} required type="password" id="password" name="password" placeholder="Password"/>
                     <Link className={styles.forgotten} to="/recover-password">Forgot password?</Link>
                 </div>
-                <button type="submit">Login</button>
+                <button className={styles.button} type="submit">Login</button>
             </form>
         </div>
     );
