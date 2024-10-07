@@ -3,13 +3,13 @@
     margin-bottom: 3vh;
 }
 
-a {
+.link {
     width: fit-content;
     display: block;
     margin: 15px 0;
     font-size: 1.3rem;
 }
 
-a:hover {
+.link:hover {
     cursor: pointer;
 }
