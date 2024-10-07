@@ -23,6 +23,7 @@ form {
     padding: 10px;
     border: none;
     width: 400px;
+    color: rgb(36,36,36);
 }
 
 ::placeholder {
@@ -60,4 +61,15 @@ button {
 button:hover {
     cursor: pointer;
     color: gray;
+}
+
+.desc {
+    margin-top: 80px;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    width: 600px;
+    background-color: white;
+    color: rgb(36,36,36);
+    border-radius: 10px;
+    padding: 5px;
 }
