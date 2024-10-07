@@ -5,6 +5,10 @@
     width: 100%;
 }
 
+form {
+    text-align: center;
+}
+
 .group {
     margin-bottom: 20px;
 }
@@ -28,6 +32,13 @@
 label {
     text-align: left;
     display: block;
+}
+
+.hint {
+    margin-top: 5px;
+    font-size: 0.8rem;
+    color: lightgray;
+    text-align: start;
 }
 
 .forgotten {
