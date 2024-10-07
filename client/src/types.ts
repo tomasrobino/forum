@@ -34,7 +34,7 @@ export interface post {
 export interface user {
   username: string,
   //Binary data representing avatar image
-  avatar: string,
+  avatar: Buffer,
   posts: number,
   topics: number,
   createdAt: string

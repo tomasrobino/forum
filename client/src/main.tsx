@@ -1,5 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { Buffer } from 'buffer'
+globalThis.Buffer = Buffer;
 import App from './App.tsx'
 import './index.css'
 import {createBrowserRouter, createRoutesFromElements, Outlet, Route, RouterProvider} from "react-router-dom";
