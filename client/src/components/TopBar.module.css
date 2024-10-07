@@ -2,3 +2,13 @@
     width: 100%;
     margin-bottom: 3vh;
 }
+
+a {
+    display: block;
+    margin: 15px 0;
+    font-size: 1.3rem;
+}
+
+a:hover {
+    cursor: pointer;
+}
