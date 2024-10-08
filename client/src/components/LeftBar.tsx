@@ -14,7 +14,9 @@ export default function LeftBar() {
             <Link to={"/profile/messages"}>
                 <button className={styles.button}></button> {/*Chat*/}
             </Link>
-            <button className={styles.button} onClick={handleSearch}></button> {/*Search*/}
+            <Link to={"/search"}>
+                <button className={styles.button} onClick={handleSearch}></button> {/*Search*/}
+            </Link>
         </div>
     )
 }
