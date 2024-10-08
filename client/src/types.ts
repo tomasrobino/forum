@@ -46,6 +46,6 @@ export interface credentials {
 }
 
 export interface authCredentials extends credentials {
-  loginAction: () => void,
+  loginAction: ({ username, password }: {username: string, password: string}) => void,
   logOut: () => void,
 }
