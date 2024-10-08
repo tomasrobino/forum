@@ -39,3 +39,13 @@ export interface user {
   topics: number,
   createdAt: string
 }
+
+export interface credentials {
+  user: string,
+  token: string
+}
+
+export interface authCredentials extends credentials {
+  loginAction: () => void,
+  logOut: () => void,
+}

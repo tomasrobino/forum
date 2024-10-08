@@ -1,7 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { Buffer } from 'buffer'
-globalThis.Buffer = Buffer;
 import App from './App.tsx'
 import './index.css'
 import {createBrowserRouter, createRoutesFromElements, Outlet, Route, RouterProvider} from "react-router-dom";
@@ -14,6 +13,8 @@ import {Post} from "./components/post/Post.tsx";
 import {Login} from "./components/login/Login.tsx";
 import {Register} from "./components/login/Register.tsx";
 import {RecoverPassword} from "./components/login/RecoverPassword.tsx";
+import AuthProvider from "./hooks/AuthProvider.tsx";
+globalThis.Buffer = Buffer;
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -23,7 +24,9 @@ const router = createBrowserRouter(
           <LeftBar />
           <App>
             <TopBar />
-            <Outlet/>
+            <AuthProvider>
+              <Outlet/>
+            </AuthProvider>
           </App>
           <RightBar />
         </div>
