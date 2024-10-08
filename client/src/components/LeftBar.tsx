@@ -2,10 +2,6 @@ import styles from './LeftBar.module.css'
 import {Link} from "react-router-dom";
 
 export default function LeftBar() {
-    function handleSearch() {
-
-    }
-
     return(
         <div className={styles.bar}>
             <Link to={"/profile"}>
@@ -15,7 +11,7 @@ export default function LeftBar() {
                 <button className={styles.button}></button> {/*Chat*/}
             </Link>
             <Link to={"/search"}>
-                <button className={styles.button} onClick={handleSearch}></button> {/*Search*/}
+                <button className={styles.button}></button> {/*Search*/}
             </Link>
         </div>
     )
