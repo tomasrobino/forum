@@ -5,7 +5,6 @@ import App from './App.tsx'
 import './index.css'
 import {createBrowserRouter, createRoutesFromElements, Outlet, Route, RouterProvider} from "react-router-dom";
 import LeftBar from "./components/LeftBar.tsx";
-import RightBar from "./components/RightBar.tsx";
 import Dashboard from "./components/Dashboard.tsx";
 import {Board} from "./components/category/Board.tsx";
 import {TopBar} from "./components/TopBar.tsx";
@@ -28,7 +27,6 @@ const router = createBrowserRouter(
               <Outlet/>
             </AuthProvider>
           </App>
-          <RightBar />
         </div>
       }
     >
