@@ -5,12 +5,12 @@ import {authCredentials, credentials} from "../types.ts";
 const AuthContext = createContext({});
 
 export default function AuthProvider({ children }: { children: ReactNode }) {
+    const url = import.meta.env.VITE_URL;
     const [user, setUser] = useState(null);
     const [token, setToken] = useState(localStorage.getItem("login") || "");
     const navigate = useNavigate();
     async function loginAction(data: credentials) {
         try {
-            const url = import.meta.env.VITE_URL;
             fetch(`${url}/forum/users/login`, {
                 method: "POST",
                 headers: {
@@ -41,8 +41,30 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
         navigate("/login");
     }
 
+    async function register(data: credentials) {
+        await fetch(`${url}/forum/users/register`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+            .then(data => data.json())
+            .then(data => {
+                if (data.error) {
+                    console.log(data.error)
+                } else {
+                    setUser(data.user);
+                    setToken(data.token);
+                    localStorage.setItem("login", data.token);
+                    navigate("/");
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    }
+
     return (
-        <AuthContext.Provider value={{ token, user, loginAction, logOut }}>
+        <AuthContext.Provider value={{ token, user, loginAction, logOut, register }}>
             {children}
         </AuthContext.Provider>
     );

@@ -50,4 +50,5 @@ export interface authCredentials {
   token: string,
   loginAction: ({ username, password }: {username: string, password: string}) => void,
   logOut: () => void,
+  register: ({ username, email, password }: {username: string, email: string, password: string}) => void
 }

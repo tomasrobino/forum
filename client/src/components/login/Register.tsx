@@ -1,7 +1,9 @@
 import styles from "./Login.module.css";
 import {ChangeEvent, FormEvent, useState} from "react";
+import {useAuth} from "../../hooks/AuthProvider.tsx";
 
 export function Register() {
+    const auth = useAuth();
     const [inputs, setInputs] = useState({
         username: "",
         email: "",
@@ -10,23 +12,7 @@ export function Register() {
 
     async function handleRegister(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        const url = import.meta.env.VITE_URL;
-        await fetch(`${url}/forum/users/register`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(inputs)
-        })
-            .then(data => data.json())
-            .then(data => {
-                if (data.error) {
-                    console.log(data.error)
-                } else {
-                    console.log(data);
-                }
-            })
-            .catch(error => console.error('Error:', error));
+        auth.register(inputs);
     }
 
     function handleInput(e: ChangeEvent<HTMLInputElement>) {
