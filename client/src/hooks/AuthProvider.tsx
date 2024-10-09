@@ -11,7 +11,7 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
     async function loginAction(data: credentials) {
         try {
             const url = import.meta.env.VITE_URL;
-            const response = await fetch(`${url}/forum/users/login`, {
+            fetch(`${url}/forum/users/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
