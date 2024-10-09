@@ -12,7 +12,7 @@ router.get('/forum/category/:cat/post/:id', getSinglePost);
 router.get("/forum/users/:user", getUser);
 
 
-router.post("/forum/users/login", login)
-router.post("/forum/users/register", register)
+router.post("/forum/users/login", login);
+router.post("/forum/users/register", register);
 
 module.exports = router;
