@@ -1,6 +1,6 @@
 const mongoose = require("mongoose").default;
 const {User} = require("../models/User");
-const {ObjectId} = require("mongodb");
+const bcrypt = require("bcryptjs");
 
 main().catch((err) => console.log(err));
 async function main() {
@@ -22,8 +22,33 @@ async function getUser(req, res) {
     res.send({...user._doc, createdAt: user.createdAt.toJSON(), updatedAt: user.updatedAt.toJSON()});
 }
 
-async function login(req, res) {
-    res.send({});
+async function login(req, response) {
+    const user = await User.findOne({ username: req.body.username });
+    bcrypt.compare(req.body.password, user.token, (err, res) => {
+        if (res) {
+            response.sendStatus(200);
+        } else response.sendStatus(403);
+    });
+}
+
+async function register(req, response) {
+    if (await User.findOne({ username: req.body.username })) {
+        //Username already exists
+        response.status(403).send({"error": "Username already exists"});
+    } else if (await User.findOne({ username: req.body.username })) {
+        //Email already exists
+        response.status(403).send({"error": "Email already exists"})
+    } else {
+        //User doesn't exist, create user
+        const data = req.body;
+        const user = new User({ email: data.email, username: data.username, posts: 0, topics: 0 });
+        bcrypt.genSalt(10, function(err, salt) {
+            bcrypt.hash(data.password, salt, function(err, hash) {
+                user.token = hash;
+            });
+        });
+        response.sendStatus(200);
+    }
 }
 
 module.exports = {
