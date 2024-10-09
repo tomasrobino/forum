@@ -22,6 +22,11 @@ async function getUser(req, res) {
     res.send({...user._doc, createdAt: user.createdAt.toJSON(), updatedAt: user.updatedAt.toJSON()});
 }
 
+async function login(req, res) {
+    res.send({});
+}
+
 module.exports = {
-    getUser
+    getUser,
+    login
 }
