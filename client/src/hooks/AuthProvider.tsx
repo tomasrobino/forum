@@ -20,7 +20,7 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
             })
                 .then(data => data.json())
                 .then(data => {
-                    if (data.status === "success") {
+                    if (data.resp === "success") {
                         setUser(data.user);
                         setToken(data.token);
                         localStorage.setItem("login", data.token);
