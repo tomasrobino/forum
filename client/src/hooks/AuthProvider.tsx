@@ -1,4 +1,3 @@
-
 import {useContext, createContext, useState, ReactNode} from "react";
 import { useNavigate } from "react-router-dom";
 import {authCredentials, credentials} from "../types.ts";
@@ -23,7 +22,7 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
             if (res.data) {
                 setUser(res.data.user);
                 setToken(res.token);
-                localStorage.setItem("site", res.token);
+                localStorage.setItem("login", res.token);
                 navigate("/");
                 return;
             }

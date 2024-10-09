@@ -42,10 +42,12 @@ export interface user {
 
 export interface credentials {
   user: string,
-  token: string
+  password: string
 }
 
-export interface authCredentials extends credentials {
+export interface authCredentials {
+  user: string,
+  token: string,
   loginAction: ({ username, password }: {username: string, password: string}) => void,
   logOut: () => void,
 }
