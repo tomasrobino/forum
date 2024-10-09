@@ -23,7 +23,10 @@ export default function LeftBar() {
             {
                 auth.token && auth.token !== "" ?
                     <button className={styles.button} onClick={handleLogout}></button> //Logout
-                    : null
+                    :
+                    <Link to={"/register"}>
+                        <button className={styles.button}></button> {/*Register*/}
+                    </Link>
             }
         </div>
     )
