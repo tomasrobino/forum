@@ -1,6 +1,7 @@
 const mongoose = require("mongoose").default;
 const {User} = require("../models/User");
 const bcrypt = require("bcryptjs");
+const {ObjectId} = require("mongodb");
 
 main().catch((err) => console.log(err));
 async function main() {
@@ -24,7 +25,7 @@ async function getUser(req, res) {
 
 async function login(req, response) {
     const user = await User.findOne({ username: req.body.username });
-    bcrypt.compare(req.body.password, user.token, (err, res) => {
+    await bcrypt.compare(req.body.password, user.token, (err, res) => {
         if (res) {
             response.sendStatus(200);
         } else response.sendStatus(403);
@@ -34,20 +35,21 @@ async function login(req, response) {
 async function register(req, response) {
     if (await User.findOne({ username: req.body.username })) {
         //Username already exists
-        response.status(403).send({"error": "Username already exists"});
-    } else if (await User.findOne({ username: req.body.username })) {
+        response.status(403).send({error: "Username already exists"});
+    } else if (await User.findOne({ email: req.body.email})) {
         //Email already exists
-        response.status(403).send({"error": "Email already exists"})
+        response.status(403).send({error: "Email already exists"})
     } else {
         //User doesn't exist, create user
         const data = req.body;
-        const user = new User({ email: data.email, username: data.username, posts: 0, topics: 0 });
-        bcrypt.genSalt(10, function(err, salt) {
-            bcrypt.hash(data.password, salt, function(err, hash) {
+        const user = new User({ _id: new ObjectId(), email: data.email, username: data.username, posts: 0, topics: 0 });
+        await bcrypt.genSalt(10, function(err, salt) {
+            bcrypt.hash(data.password, salt, async function (err, hash) {
                 user.token = hash;
+                await user.save();
+                response.status(200).send(user);
             });
         });
-        response.sendStatus(200);
     }
 }
 

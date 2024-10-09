@@ -19,6 +19,13 @@ export function Register() {
             body: JSON.stringify(inputs)
         })
             .then(data => data.json())
+            .then(data => {
+                if (data.error) {
+                    console.log(data.error)
+                } else {
+                    console.log(data);
+                }
+            })
             .catch(error => console.error('Error:', error));
     }
 
