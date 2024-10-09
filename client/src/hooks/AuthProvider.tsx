@@ -17,16 +17,18 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(data),
-            });
-            const res = await response.json();
-            if (res.data) {
-                setUser(res.data.user);
-                setToken(res.token);
-                localStorage.setItem("login", res.token);
-                navigate("/");
-                return;
-            }
-            throw new Error(res.message);
+            })
+                .then(data => data.json())
+                .then(data => {
+                    if (data.status === "success") {
+                        setUser(data.user);
+                        setToken(data.token);
+                        localStorage.setItem("login", data.token);
+                        navigate("/");
+                        return;
+                    }
+                    throw new Error(data.message);
+                })
         } catch (err) {
             console.error(err);
         }
