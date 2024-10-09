@@ -53,5 +53,6 @@ async function register(req, response) {
 
 module.exports = {
     getUser,
-    login
+    login,
+    register
 }

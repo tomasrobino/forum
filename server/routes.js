@@ -1,6 +1,6 @@
 const express = require('express');
 const {getPosts, getCategory, getSinglePost, getAllCategories} = require("./controllers/forum");
-const { getUser, login } = require("./controllers/users");
+const { getUser, login, register} = require("./controllers/users");
 const router = express.Router();
 
 
@@ -13,5 +13,6 @@ router.get("/forum/users/:user", getUser);
 
 
 router.post("/forum/users/login", login)
+router.post("/forum/users/register", register)
 
 module.exports = router;
