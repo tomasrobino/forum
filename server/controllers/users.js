@@ -27,7 +27,7 @@ async function login(req, response) {
     const user = await User.findOne({ username: req.body.username });
     await bcrypt.compare(req.body.password, user.token, (err, res) => {
         if (res) {
-            response.sendStatus(200);
+            response.status(200).send(user);
         } else response.sendStatus(403);
     });
 }
