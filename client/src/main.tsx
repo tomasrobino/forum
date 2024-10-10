@@ -24,13 +24,13 @@ const router = createBrowserRouter(
         <Route
             element={
                 <div className="layoutDiv">
-                    <LeftBar />
-                    <App>
-                        <TopBar />
-                        <AuthProvider>
-                            <Outlet/>
-                        </AuthProvider>
-                    </App>
+                    <AuthProvider>
+                        <LeftBar />
+                        <App>
+                            <TopBar />
+                                <Outlet/>
+                        </App>
+                    </AuthProvider>
                 </div>
             }
         >
