@@ -18,16 +18,15 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
                 },
                 body: JSON.stringify(data),
             })
-                .then(data => data.json())
                 .then(data => {
-                    if (data.ok) {
-                        setUser(data.user);
-                        setToken(data.token);
-                        localStorage.setItem("login", data.token);
-                        navigate("/");
-                        return;
-                    }
-                    throw new Error(data.message);
+                    if (data.status === 200) return data.json();
+                    throw new Error("User not found");
+                })
+                .then(data => {
+                    setUser(data.username);
+                    setToken(data.token);
+                    localStorage.setItem("login", data.token);
+                    navigate("/");
                 })
         } catch (err) {
             console.error(err);
@@ -54,8 +53,9 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
                 if (data.error) {
                     console.log(data.error)
                 } else {
-                    setUser(data.user);
+                    setUser(data.username);
                     setToken(data.token);
+                    localStorage.setItem("username", data.username);
                     localStorage.setItem("login", data.token);
                     navigate("/");
                 }
