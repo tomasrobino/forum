@@ -10,6 +10,7 @@ import {Reply} from "./Reply.tsx";
 export function Post() {
   const [params, _setParams] = useSearchParams();
   const location   = useLocation();
+  const [active, setActive] = useState<boolean>(false);
   const [parentCategory, setParentCategory]: [category, Dispatch<SetStateAction<category>>] = useState<category>({
     _id: "",
     description: "",
@@ -71,8 +72,10 @@ export function Post() {
   return (
     <>
       <PostHeader categoryURL={parentCategory.urlName} category={parentCategory.title} iconColor={""} icon={""} title={post.title} replies={344} posters={23} />
-      <MenuBar options={[{value: "oldest", name: "Oldest"}, {value: "newest", name: "Newest"}]} />
-      {post._id!==""? replyArray : null}
+      <MenuBar setActive={setActive} buttonText="Reply" options={[{value: "oldest", name: "Oldest"}, {value: "newest", name: "Newest"}]} />
+      <div className={active? styles.activeDiv : ""}>
+        {post._id!==""? replyArray : null}
+      </div>
     </>
   );
 }

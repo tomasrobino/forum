@@ -42,7 +42,7 @@ export function Board() {
   return (
     <>
       {categoryData? <BoardHeader iconColor="orange" icon={""} title={categoryData.title} description={categoryData.description} postAmount={categoryData.posts} topicAmount={categoryData.topics} /> : null}
-      <MenuBar options={[{name: "Last posted", value: "lastPosted"}, {name: "Most replies", value: "mostReplies"}, {name: "Fewest replies", value: "fewestReplies"}]} />
+      <MenuBar buttonText="Post new thread" options={[{name: "Last posted", value: "lastPosted"}, {name: "Most replies", value: "mostReplies"}, {name: "Fewest replies", value: "fewestReplies"}]} />
       {...posts}
     </>
   );
