@@ -1,3 +1,8 @@
+.div {
+    display: flex;
+    margin-bottom: 10px;
+}
+
 .title {
     font-size: 1.5rem;
     margin-bottom: 20px;
@@ -12,9 +17,9 @@
     border-radius: 10px;
     height: 50vh;
     width: 100%;
+    padding: 5px;
+    margin: 0 20px;
     color: white;
-    font-size: 1rem;
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;;
 }
 
 .textArea:focus {

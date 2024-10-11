@@ -6,7 +6,7 @@ const AuthContext = createContext({});
 
 export default function AuthProvider({ children }: { children: ReactNode }) {
     const url = import.meta.env.VITE_URL;
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState(localStorage.getItem("username") || "");
     const [token, setToken] = useState(localStorage.getItem("login") || "");
     const navigate = useNavigate();
     async function loginAction(data: credentials) {
@@ -26,6 +26,7 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
                     setUser(data.username);
                     setToken(data.token);
                     localStorage.setItem("login", data.token);
+                    localStorage.setItem("username", data.username);
                     navigate("/");
                 })
         } catch (err) {
@@ -34,7 +35,7 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
     }
 
     function logOut() {
-        setUser(null);
+        setUser("");
         setToken("");
         localStorage.removeItem("login");
         navigate("/login");

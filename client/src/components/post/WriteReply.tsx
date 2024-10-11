@@ -3,7 +3,6 @@ import {UserPanel} from "./UserPanel.tsx";
 import {useEffect, useState} from "react";
 import {useAuth} from "../../hooks/AuthProvider.tsx";
 import {user} from "../../types.ts";
-import {formatDate} from "../../utils.ts";
 
 export function WriteReply() {
     const auth = useAuth();
@@ -16,16 +15,15 @@ export function WriteReply() {
     });
     useEffect(() => {
         const url = import.meta.env.VITE_URL;
-
         try {
-            fetch(`${url}/forum/users/${auth.user}`)
+            fetch(`${url}/forum/users/${localStorage.getItem("username")}`)
                 .then(data => {
                     if (data.ok) {
                         return data.json();
                     } else throw new Error("Could not fetch user");
                 })
                 .then(data => {
-                    const aux = Buffer.from(data.avatar, "binary").toString("base64");
+                    const aux = Buffer.from(data.avatar || "", "binary").toString("base64");
                     delete data.avatar;
                     return setUser({...data, avatar: aux});
                 })
@@ -38,8 +36,10 @@ export function WriteReply() {
     return (
         <>
             <p className={styles.title}>Write a reply</p>
-            <UserPanel user={user} />
-            <textarea className={styles.textArea} autoComplete="off"/>
+            <div className={styles.div}>
+                <UserPanel user={user} />
+                <textarea className={styles.textArea} autoComplete="off"/>
+            </div>
         </>
     );
 }

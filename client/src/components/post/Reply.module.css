@@ -7,7 +7,9 @@
 }
 
 .userPanel {
-    width: 13%;
+    border-right: 2px solid;
+    width: 170px;
+    min-width: 170px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,7 +40,6 @@
 
 .textPanel {
     width: 87%;
-    border-left: 2px solid;
     padding-left: 20px;
 }
 
