@@ -1,6 +1,8 @@
 import styles from "./Reply.module.css"
 import {user} from "../../types.ts";
 import {useEffect, useState} from "react";
+import {UserPanel} from "./UserPanel.tsx";
+import {formatDate} from "../../utils.ts";
 
 export function Reply(props: {text: string, date: string, author: string}) {
   const [user, setUser] = useState<user>({
@@ -10,14 +12,6 @@ export function Reply(props: {text: string, date: string, author: string}) {
     topics: 0,
     username: ""
   });
-
-  function formatDate(date: string) {
-    const objectDate = new Date(date);
-    if (isNaN(objectDate.getUTCDate())) return "Unknown";
-    return `${objectDate.getUTCDate()}/${objectDate.getUTCMonth() + 1}/${objectDate.getUTCFullYear()}`;
-  }
-
-  const formattedDate = formatDate(props.date);
 
   useEffect(() => {
     const url = import.meta.env.VITE_URL;
@@ -52,19 +46,10 @@ export function Reply(props: {text: string, date: string, author: string}) {
 
   return (
       <div className={styles.parentPanel}>
-        <div className={styles.userPanel}>
-            { user.avatar.length ?
-                <img alt="Profile picture" src={"data:image/jpg;base64," + user.avatar} className={styles.profilePicture}/>
-                : <div className={styles.profilePicture}></div> }
-            <p className={styles.user}>{user.username}</p>
-          <div className={styles.datapoint}><p className={styles.dataTitle}>joined:</p> <p
-              className={styles.userData}>{formatDate(user.createdAt) || ""}</p></div>
-          <div className={styles.datapoint}><p className={styles.dataTitle}>posts:</p> <p
-              className={styles.userData}>{user.posts}</p></div>
-        </div>
+        <UserPanel user={user} />
         <div className={styles.textPanel}>
           <p className={styles.text}>{props.text}</p>
-          <p className={styles.date}>{formattedDate}</p>
+          <p className={styles.date}>{formatDate(props.date)}</p>
         </div>
       </div>
   );

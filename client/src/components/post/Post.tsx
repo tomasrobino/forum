@@ -5,6 +5,7 @@ import {Dispatch, ReactElement, SetStateAction, useEffect, useState} from "react
 import {category, post} from "../../types.ts";
 import {useLocation, useSearchParams} from "react-router-dom";
 import {Reply} from "./Reply.tsx";
+import {WriteReply} from "./WriteReply.tsx";
 
 
 export function Post() {
@@ -73,6 +74,7 @@ export function Post() {
     <>
       <PostHeader categoryURL={parentCategory.urlName} category={parentCategory.title} iconColor={""} icon={""} title={post.title} replies={344} posters={23} />
       <MenuBar setActive={setActive} buttonText="Reply" options={[{value: "oldest", name: "Oldest"}, {value: "newest", name: "Newest"}]} />
+      {active? <WriteReply /> : null}
       <div className={active? styles.activeDiv : ""}>
         {post._id!==""? replyArray : null}
       </div>
