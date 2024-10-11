@@ -40,6 +40,10 @@ export function WriteReply() {
                 <UserPanel user={user} />
                 <textarea className={styles.textArea} autoComplete="off"/>
             </div>
+            <div className={styles.buttonDiv}>
+                <button className={`${styles.button} ${styles.cancelButton}`}>Cancel</button>
+                <button className={`${styles.button} ${styles.postButton}`}>Post</button>
+            </div>
         </>
     );
 }

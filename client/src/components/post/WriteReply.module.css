@@ -25,3 +25,26 @@
 .textArea:focus {
     outline: 2px solid white;
 }
+
+.buttonDiv {
+    display: flex;
+    justify-content: end;
+    min-height: 80px;
+}
+
+.button {
+    border: 2px solid white;
+    border-radius: 10px;
+    color: white;
+    min-width: 80px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+}
+
+.cancelButton {
+    background-color: red;
+}
+
+.postButton {
+
+}
