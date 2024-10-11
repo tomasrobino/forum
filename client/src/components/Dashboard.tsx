@@ -1,17 +1,26 @@
 import ForumItem from "./ForumItem.tsx";
 import {Dispatch, SetStateAction, useEffect, useState} from "react";
 import {category} from "../types.ts";
-
+import {ErrorComponent} from "./ErrorComponent.tsx";
 
 export default function Dashboard() {
   const [categoriesData, setCategoriesData]: [category[], Dispatch<SetStateAction<category[]>>] = useState(Array<category>);
+  const [error, setError] = useState<boolean>(false);
   useEffect(() => {
     const url = import.meta.env.VITE_URL;
     //Fetching categories
-    fetch(`${url}/forum/categories`)
-      .then(data => data.json())
-      .then(data => setCategoriesData(data))
-      .catch(error => console.error('Error:', error))
+    try {
+      fetch(`${url}/forum/categories`)
+          .then(data => data.json())
+          .then(data => setCategoriesData(data))
+          .catch(error => {
+            setError(true);
+            throw new Error(error)
+          });
+    } catch (error: unknown) {
+      setError(true);
+    }
+
   }, [])
 
   const categories = [];
@@ -32,7 +41,10 @@ export default function Dashboard() {
 
   return (
     <div>
-      {...categories}
+      { error ?
+          <ErrorComponent text="Can't fetch categories" />
+          : categories
+      }
     </div>
   )
 }
