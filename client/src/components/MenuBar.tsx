@@ -1,6 +1,6 @@
 import styles from './MenuBar.module.css'
 import {ReactElement, useState} from "react";
-import {useSearchParams} from "react-router-dom";
+import {Link, useSearchParams} from "react-router-dom";
 import {MenuItem, Select, SelectChangeEvent} from "@mui/material";
 
 export function MenuBar(props: { options: Array<{value: string, name: string}>}) {
@@ -29,7 +29,9 @@ export function MenuBar(props: { options: Array<{value: string, name: string}>})
             >
                 {...optionsArray}
             </Select>
-            <button className={styles.button}>Log in to reply</button>
+            <Link to={"reply"}>
+                <button className={styles.button}>Reply</button>
+            </Link>
         </div>
     );
 }

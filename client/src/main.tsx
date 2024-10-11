@@ -17,6 +17,7 @@ import PrivateRoute from "./components/PrivateRoute.tsx";
 import {Messages} from "./components/profile/Messages.tsx";
 import {Profile} from "./components/profile/Profile.tsx";
 import {Search} from "./components/Search.tsx";
+import {WriteReply} from "./components/post/WriteReply.tsx";
 globalThis.Buffer = Buffer;
 
 const router = createBrowserRouter(
@@ -47,6 +48,7 @@ const router = createBrowserRouter(
             <Route element={<PrivateRoute/>}>
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/profile/messages" element={<Messages />} />
+                <Route path="category/:categoryname/post/:id/reply" element={<WriteReply />} />
             </Route>
         </Route>
     )
