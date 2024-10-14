@@ -34,7 +34,7 @@ export function Reply(props: {text: string, date: string, author: string}) {
             } else throw new Error("Could not fetch reply");
           })
           .then(data => {
-              const aux = Buffer.from(data.avatar, "binary").toString("base64");
+              const aux = Buffer.from(data.avatar || "", "binary").toString("base64");
               delete data.avatar;
               return setUser({...data, avatar: aux});
           })
