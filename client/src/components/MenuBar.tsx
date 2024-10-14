@@ -8,7 +8,7 @@ export function MenuBar(props: { options: Array<{value: string, name: string}>, 
     const [selectedValue, setSelectedValue] = useState(props.options[0].value);
     const [_searchParams, setSearchParams] = useSearchParams();
     const navigate = useNavigate();
-    const { category } = useParams();
+    const { categoryname } = useParams();
     const auth = useAuth();
     function handleChange(event: SelectChangeEvent) {
         setSearchParams({ "select": event.target.value });
@@ -24,7 +24,7 @@ export function MenuBar(props: { options: Array<{value: string, name: string}>, 
         if (auth.token && auth.token !== "") {
             if (props.setActive !== undefined) {
                 props.setActive(true);
-            } else navigate("/post", { state: { category: category } });
+            } else navigate("/post", { state: { category: categoryname } });
         } else navigate("/login");
     }
 
