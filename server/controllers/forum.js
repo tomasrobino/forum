@@ -1,6 +1,7 @@
 const {Category} = require("../models/Category");
 const {Post} = require("../models/Post");
 const {ObjectId} = require("mongodb");
+const {Reply} = require("../models/Reply");
 const mongoose = require("mongoose").default;
 
 
@@ -49,6 +50,20 @@ async function getSinglePost(req, res) {
         modifiedReplies.push({...reply._doc, createdAt: reply.createdAt.toJSON(), updatedAt: reply.updatedAt.toJSON()});
     }
     res.send({...post._doc, replies: modifiedReplies, createdAt: post.createdAt.toJSON(), updatedAt: post.updatedAt.toJSON()});
+}
+
+async function reply(req, res) {
+    const reply = new Reply();
+    reply._id = new ObjectId();
+    reply.parent = req.body.parent;
+    reply.author = req.body.author;
+    reply.text = req.body.text;
+    try {
+        await reply.save();
+        res.status(200).send(reply);
+    } catch (err) {
+        res.status(500).send(err);
+    }
 }
 
 module.exports = {
