@@ -1,12 +1,14 @@
 import styles from './MenuBar.module.css'
-import {Dispatch, MouseEvent, ReactElement, SetStateAction, useState} from "react";
+import {Dispatch, ReactElement, SetStateAction, useState} from "react";
 import {useNavigate, useSearchParams} from "react-router-dom";
 import {MenuItem, Select, SelectChangeEvent} from "@mui/material";
+import {useAuth} from "../hooks/AuthProvider.tsx";
 
 export function MenuBar(props: { options: Array<{value: string, name: string}>, buttonText: string, setActive?: Dispatch<SetStateAction<boolean>>}) {
     const [selectedValue, setSelectedValue] = useState(props.options[0].value);
     const [_searchParams, setSearchParams] = useSearchParams();
     const navigate = useNavigate()
+    const auth = useAuth();
     function handleChange(event: SelectChangeEvent) {
         setSearchParams({ "select": event.target.value });
         setSelectedValue(event.target.value);
@@ -17,12 +19,12 @@ export function MenuBar(props: { options: Array<{value: string, name: string}>, 
         optionsArray.push(<MenuItem key={option.value} value={option.value}>{option.name}</MenuItem>);
     });
 
-    function handleAction(event: MouseEvent<HTMLButtonElement>) {
-        if (props.setActive !== undefined) {
-            props.setActive(true)
-        } else {
-            navigate("/post")
-        }
+    function handleAction() {
+        if (auth.token && auth.token !== "") {
+            if (props.setActive !== undefined) {
+                props.setActive(true)
+            } else navigate("/post");
+        } else navigate("/login");
     }
 
     return (
