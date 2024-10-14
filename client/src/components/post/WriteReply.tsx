@@ -1,10 +1,10 @@
 import styles from "./WriteReply.module.css"
 import {UserPanel} from "./UserPanel.tsx";
-import {useEffect, useState} from "react";
+import {Dispatch, SetStateAction, useEffect, useState} from "react";
 import {useAuth} from "../../hooks/AuthProvider.tsx";
 import {user} from "../../types.ts";
 
-export function WriteReply() {
+export function WriteReply(props: {setActive: Dispatch<SetStateAction<boolean>>}) {
     const auth = useAuth();
     const [user, setUser] = useState<user>({
         avatar: Buffer.alloc(0),
@@ -33,6 +33,10 @@ export function WriteReply() {
         }
     }, []);
 
+    function handleCancel() {
+        props.setActive(false);
+    }
+
     return (
         <>
             <p className={styles.title}>Write a reply</p>
@@ -41,7 +45,7 @@ export function WriteReply() {
                 <textarea className={styles.textArea} autoComplete="off"/>
             </div>
             <div className={styles.buttonDiv}>
-                <button className={`${styles.button} ${styles.cancelButton}`}>Cancel</button>
+                <button className={`${styles.button} ${styles.cancelButton}`} onClick={handleCancel}>Cancel</button>
                 <button className={`${styles.button} ${styles.postButton}`}>Post</button>
             </div>
         </>

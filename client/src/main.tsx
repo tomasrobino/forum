@@ -48,7 +48,6 @@ const router = createBrowserRouter(
             <Route element={<PrivateRoute/>}>
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/profile/messages" element={<Messages />} />
-                <Route path="category/:categoryname/post/:id/reply" element={<WriteReply />} />
             </Route>
         </Route>
     )

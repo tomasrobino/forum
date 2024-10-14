@@ -10,7 +10,7 @@ import {WriteReply} from "./WriteReply.tsx";
 
 export function Post() {
   const [params, _setParams] = useSearchParams();
-  const location   = useLocation();
+  const location = useLocation();
   const [active, setActive] = useState<boolean>(false);
   const [parentCategory, setParentCategory]: [category, Dispatch<SetStateAction<category>>] = useState<category>({
     _id: "",
@@ -74,7 +74,7 @@ export function Post() {
     <>
       <PostHeader categoryURL={parentCategory.urlName} category={parentCategory.title} iconColor={""} icon={""} title={post.title} replies={344} posters={23} />
       <MenuBar setActive={setActive} buttonText="Reply" options={[{value: "oldest", name: "Oldest"}, {value: "newest", name: "Newest"}]} />
-      {active? <WriteReply /> : null}
+      {active? <WriteReply setActive={setActive} /> : null}
       <div className={active? styles.activeDiv : ""}>
         {post._id!==""? replyArray : null}
       </div>
