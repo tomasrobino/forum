@@ -1,7 +1,6 @@
 import styles from "./WriteReply.module.css"
 import {UserPanel} from "./UserPanel.tsx";
 import {ChangeEvent, Dispatch, SetStateAction, useEffect, useState} from "react";
-import {useAuth} from "../../hooks/AuthProvider.tsx";
 import {user} from "../../types.ts";
 import {useLocation} from "react-router-dom";
 
