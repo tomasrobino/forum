@@ -22,7 +22,7 @@ export function MenuBar(props: { options: Array<{value: string, name: string}>, 
     function handleAction() {
         if (auth.token && auth.token !== "") {
             if (props.setActive !== undefined) {
-                props.setActive(true)
+                props.setActive(true);
             } else navigate("/post");
         } else navigate("/login");
     }
