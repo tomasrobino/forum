@@ -1,13 +1,14 @@
 import styles from './MenuBar.module.css'
 import {Dispatch, ReactElement, SetStateAction, useState} from "react";
-import {useNavigate, useSearchParams} from "react-router-dom";
+import {useNavigate, useParams, useSearchParams} from "react-router-dom";
 import {MenuItem, Select, SelectChangeEvent} from "@mui/material";
 import {useAuth} from "../hooks/AuthProvider.tsx";
 
 export function MenuBar(props: { options: Array<{value: string, name: string}>, buttonText: string, setActive?: Dispatch<SetStateAction<boolean>>}) {
     const [selectedValue, setSelectedValue] = useState(props.options[0].value);
     const [_searchParams, setSearchParams] = useSearchParams();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const { category } = useParams();
     const auth = useAuth();
     function handleChange(event: SelectChangeEvent) {
         setSearchParams({ "select": event.target.value });
@@ -23,7 +24,7 @@ export function MenuBar(props: { options: Array<{value: string, name: string}>, 
         if (auth.token && auth.token !== "") {
             if (props.setActive !== undefined) {
                 props.setActive(true);
-            } else navigate("/post");
+            } else navigate("/post", { state: { category: category } });
         } else navigate("/login");
     }
 
