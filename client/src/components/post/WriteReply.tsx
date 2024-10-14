@@ -59,13 +59,15 @@ export function WriteReply(props: {setActive: Dispatch<SetStateAction<boolean>>}
                 },
                 body: JSON.stringify({text: text, author: user.username, parent: post}),
             })
-                .then(data => data.json())
                 .then(data => {
                     if (data.status === 200) {
-                        props.setActive(false);
-                    } else {
-                        setPostError(true);
+                        return data.json();
                     }
+                    setPostError(false);
+                })
+                .then(data => {
+                    props.setActive(false);
+                    window.location.reload();
                 })
         } catch (err) {
             console.error(err);

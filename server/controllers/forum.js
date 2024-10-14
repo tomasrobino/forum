@@ -53,11 +53,18 @@ async function getSinglePost(req, res) {
 }
 
 async function reply(req, res) {
-    const reply = new Reply();
+    const post = await Post.findById(req.body.parent);
+    const reply = await new Reply();
     reply._id = new ObjectId();
     reply.parent = req.body.parent;
     reply.author = req.body.author;
     reply.text = req.body.text;
+    post.replies.push({_id: reply._id, text: req.body.text, author: req.body.author});
+    try {
+        await post.save();
+    } catch (error) {
+        res.status(500).send(error);
+    }
     try {
         await reply.save();
         res.status(200).send(reply);
