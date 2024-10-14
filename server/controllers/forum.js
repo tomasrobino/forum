@@ -70,5 +70,6 @@ module.exports = {
     getAllCategories,
     getCategory,
     getPosts,
-    getSinglePost
+    getSinglePost,
+    reply
 };

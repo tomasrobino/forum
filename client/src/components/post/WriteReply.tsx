@@ -1,11 +1,14 @@
 import styles from "./WriteReply.module.css"
 import {UserPanel} from "./UserPanel.tsx";
-import {Dispatch, SetStateAction, useEffect, useState} from "react";
+import {ChangeEvent, Dispatch, SetStateAction, useEffect, useState} from "react";
 import {useAuth} from "../../hooks/AuthProvider.tsx";
 import {user} from "../../types.ts";
+import {useLocation} from "react-router-dom";
 
 export function WriteReply(props: {setActive: Dispatch<SetStateAction<boolean>>}) {
-    const auth = useAuth();
+    const [postError, setPostError] = useState(false);
+    const [text, setText] = useState("");
+    const location = useLocation();
     const [user, setUser] = useState<user>({
         avatar: Buffer.alloc(0),
         createdAt: "",
@@ -33,8 +36,40 @@ export function WriteReply(props: {setActive: Dispatch<SetStateAction<boolean>>}
         }
     }, []);
 
+    function handleText(e: ChangeEvent<HTMLTextAreaElement>) {
+        e.preventDefault()
+        setText(e.target.value);
+    }
+
     function handleCancel() {
         props.setActive(false);
+    }
+
+
+    async function handleReply() {
+        const url = import.meta.env.VITE_URL;
+        let post = location.pathname;
+        post = post.slice(-24);
+
+        try {
+            await fetch(`${url}/forum/posting/reply`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({text: text, author: user.username, parent: post}),
+            })
+                .then(data => data.json())
+                .then(data => {
+                    if (data.status === 200) {
+                        props.setActive(false);
+                    } else {
+                        setPostError(true);
+                    }
+                })
+        } catch (err) {
+            console.error(err);
+        }
     }
 
     return (
@@ -42,12 +77,13 @@ export function WriteReply(props: {setActive: Dispatch<SetStateAction<boolean>>}
             <p className={styles.title}>Write a reply</p>
             <div className={styles.div}>
                 <UserPanel user={user} />
-                <textarea className={styles.textArea} autoComplete="off"/>
+                <textarea className={styles.textArea} autoComplete="off" onChange={handleText} value={text}/>
             </div>
             <div className={styles.buttonDiv}>
                 <button className={`${styles.button} ${styles.cancelButton}`} onClick={handleCancel}>Cancel</button>
-                <button className={`${styles.button} ${styles.postButton}`}>Post</button>
+                <button className={`${styles.button} ${styles.postButton}`} onClick={handleReply}>Post</button>
             </div>
+            {postError? <p>Error!</p> : null}
         </>
     );
 }
