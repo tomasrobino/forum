@@ -75,9 +75,6 @@ export function WritePost() {
 
     async function handlePost() {
         const url = import.meta.env.VITE_URL;
-        let post = location.pathname;
-        post = post.slice(-24);
-
         try {
             await fetch(`${url}/forum/posting/post`, {
                 method: "POST",
