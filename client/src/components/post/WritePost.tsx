@@ -81,7 +81,7 @@ export function WritePost() {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({text: text, author: user.username, title: title}),
+                body: JSON.stringify({text: text, author: user.username, title: title, category: selected}),
             })
                 .then(data => {
                     if (data.status === 200) {

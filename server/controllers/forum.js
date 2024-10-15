@@ -81,6 +81,9 @@ async function post(req, res) {
     post.title = req.body.title;
     post.views = 0;
     post.replyAmount = 0;
+    const category = await Category.findById(req.body.category);
+    if (!category) res.status(404).send({"error": "Category not found"});
+    post.category = new ObjectId(req.body.category);
     try {
         await post.save();
         res.status(200).send(post);
