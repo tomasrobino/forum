@@ -74,11 +74,14 @@ export function Post() {
             .catch(error => console.error('Error:', error))
     }, [])
 
+    const posters: Array<string> = [];
     const replyArray = Array<ReactElement>();
+    if (!posters.find(value => value === post.author)) posters.push(post.author);
     if (params.get("select")==="newest") {
         for (let i = post.replies.length-1; i >= 0; i--) {
             const reply = post.replies[i];
             replyArray.push( <Reply text={reply.text} date={reply.createdAt} author={reply.author} key={reply._id} />);
+            if (!posters.find(value => value === reply.author)) posters.push(reply.author);
         }
         replyArray.push(<Reply text={post.text} date={post.createdAt} author={post.author} key={post._id} />);
     } else {
@@ -86,13 +89,13 @@ export function Post() {
         for (let i = 0; i < post.replies.length; i++) {
             const reply = post.replies[i];
             replyArray.push( <Reply text={reply.text} date={reply.createdAt} author={reply.author} key={reply._id} />);
+            if (!posters.find(value => value === reply.author)) posters.push(reply.author);
         }
     }
 
-
     return (
         <>
-            <PostHeader categoryURL={parentCategory.urlName} category={parentCategory.title} iconColor={""} icon={""} title={post.title} replies={344} posters={23} />
+            <PostHeader categoryURL={parentCategory.urlName} category={parentCategory.title} iconColor={""} icon={""} title={post.title} replies={post.replies.length} posters={posters.length} />
             <MenuBar setActive={setActive} buttonText="Reply" options={[{value: "oldest", name: "Oldest"}, {value: "newest", name: "Newest"}]} />
             {active? <WriteReply setActive={setActive} /> : null}
             <div className={active? styles.activeDiv : ""}>
