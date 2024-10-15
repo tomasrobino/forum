@@ -4,12 +4,12 @@ import {category} from "../../types.ts";
 
 export function WritePost() {
     const [categories, setCategories] = useState<category[]>([]);
-    const [selected, setSelected] = useState<number>(0);
     const location = useLocation();
-    let previousCategory = "";
+    let previousCategory = undefined;
     if (location.state && "category" in location.state && typeof location.state.category === "string") {
         previousCategory = location.state.category;
     }
+    const [selected, setSelected] = useState<string>(previousCategory);
 
     useEffect(() => {
         const url = import.meta.env.VITE_URL;
@@ -23,23 +23,12 @@ export function WritePost() {
     }, []);
 
     function handleSelect(e: ChangeEvent<HTMLSelectElement>) {
-        setSelected(parseInt(e.target.value));
+        setSelected(e.target.value);
     }
 
     const options = [];
-    if (categories.length > 0) {
-        const index = categories.findIndex(value => {
-            if (value.urlName === previousCategory) return true;
-        });
-
-        for (let i = 0; i < categories.length; i++){
-            const category = categories[i];
-            options.push(<option value={i} key={category.urlName}>{category.title}</option>);
-        }
-
-        if (index > -1) {
-           setSelected(index);
-        }
+    for (const category of categories) {
+        options.push(<option value={category.urlName} key={category.urlName}>{category.title}</option>);
     }
 
     return (
