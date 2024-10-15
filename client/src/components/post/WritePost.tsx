@@ -10,6 +10,7 @@ export function WritePost() {
     const [categories, setCategories] = useState<category[]>([]);
     const [postError, setPostError] = useState(false);
     const [text, setText] = useState("");
+    const [title, setTitle] = useState("");
     const location = useLocation();
     let previousCategory = undefined;
     if (location.state && "category" in location.state && typeof location.state.category === "string") {
@@ -63,6 +64,11 @@ export function WritePost() {
         setText(e.target.value);
     }
 
+    function handleTitle(e: ChangeEvent<HTMLInputElement>) {
+        e.preventDefault()
+        setTitle(e.target.value);
+    }
+
     function handleCancel() {
         navigate(-1);
     }
@@ -78,7 +84,7 @@ export function WritePost() {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({text: text, author: user.username}),
+                body: JSON.stringify({text: text, author: user.username, title: title}),
             })
                 .then(data => {
                     if (data.status === 200) {
@@ -97,15 +103,16 @@ export function WritePost() {
             <select name="categorySelect" value={selected} onChange={handleSelect}>
                 {...options}
             </select>
+            <input autoComplete="off" onChange={handleTitle} value={title}/>
             <div className={styles.div}>
-                <UserPanel user={user} />
+                <UserPanel user={user}/>
                 <textarea className={styles.textArea} autoComplete="off" onChange={handleText} value={text}/>
             </div>
             <div className={styles.buttonDiv}>
                 <button className={`${styles.button} ${styles.cancelButton}`} onClick={handleCancel}>Cancel</button>
                 <button className={`${styles.button} ${styles.postButton}`} onClick={handlePost}>Post</button>
             </div>
-            {postError? <p>Error!</p> : null}
+            {postError ? <p>Error!</p> : null}
         </div>
     );
 }
