@@ -52,23 +52,20 @@ export function Post() {
             .then(data => data.json())
             .then(data => {
                 setPost(data);
-                if (location.state.views) {
+                if (location.state.view) {
                     try {
-                        fetch(`${url}/forum/updating/post`, {
+                        fetch(`${url}/forum/posting/post`, {
                             method: "PATCH",
                             headers: {
                                 "Content-Type": "application/json",
                             },
-                            body: JSON.stringify({views: true}),
+                            body: JSON.stringify({ views: data.views+1, _id: data._id}),
                         })
                             .then(data => {
-                                if (data.status !== 200) {
-                                    return data.json();
+                                if (data.status === 404) {
+                                    throw new Error("Can't find post");
                                 }
                             })
-                            .then(data => {
-                                throw new Error(data.error)
-                            });
                     } catch (err) {
                         console.error(err);
                     }

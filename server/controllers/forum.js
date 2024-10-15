@@ -99,11 +99,19 @@ async function post(req, res) {
     }
 }
 
+async function updatePostViews(req, res) {
+    const requestDB = await Post.findByIdAndUpdate(req.body._id, { views: req.body.views });
+    if (requestDB) {
+        res.sendStatus(200)
+    } else res.sendStatus(404);
+}
+
 module.exports = {
     getAllCategories,
     getCategory,
     getPosts,
     getSinglePost,
     reply,
-    post
+    post,
+    updatePostViews
 };
