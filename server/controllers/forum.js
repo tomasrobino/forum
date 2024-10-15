@@ -60,6 +60,7 @@ async function reply(req, res) {
     reply.author = req.body.author;
     reply.text = req.body.text;
     post.replies.push({_id: reply._id, text: req.body.text, author: req.body.author});
+    post.replyAmount++;
     try {
         await post.save();
     } catch (error) {
@@ -83,6 +84,12 @@ async function post(req, res) {
     post.replyAmount = 0;
     const category = await Category.findOne({ urlName: req.body.category});
     if (!category) res.status(404).send({"error": "Category not found"});
+    category.posts++;
+    try {
+        await category.save();
+    } catch (err) {
+        res.status(500).send(err);
+    }
     post.category = new ObjectId(category._id);
     try {
         await post.save();
