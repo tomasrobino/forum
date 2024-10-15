@@ -73,10 +73,27 @@ async function reply(req, res) {
     }
 }
 
+async function post(req, res) {
+    const post = await new Post();
+    post._id = new ObjectId();
+    post.author = req.body.author;
+    post.text = req.body.text;
+    post.title = req.body.title;
+    post.views = 0;
+    post.replyAmount = 0;
+    try {
+        await post.save();
+        res.status(200).send(post);
+    } catch (err) {
+        res.status(500).send(err);
+    }
+}
+
 module.exports = {
     getAllCategories,
     getCategory,
     getPosts,
     getSinglePost,
-    reply
+    reply,
+    post
 };
