@@ -9,75 +9,98 @@ import {WriteReply} from "./WriteReply.tsx";
 
 
 export function Post() {
-  const [params, _setParams] = useSearchParams();
-  const location = useLocation();
-  const [active, setActive] = useState<boolean>(false);
-  const [parentCategory, setParentCategory]: [category, Dispatch<SetStateAction<category>>] = useState<category>({
-    _id: "",
-    description: "",
-    lastPost: "",
-    posts: 0,
-    timestamp: "",
-    title: "",
-    topics: 0,
-    urlName: "",
-    user: ""
-  });
-  const [post, setPost]: [post, Dispatch<SetStateAction<post>>] = useState<post>({
-    author: "",
-    text: "",
-    _id: "",
-    replies: [],
-    replyAmount: 0,
-    updatedAt: "",
-    createdAt: "",
-    title: "",
-    views: 0,
-    category: ""
-  })
+    const [params, _setParams] = useSearchParams();
+    const location = useLocation();
+    const [active, setActive] = useState<boolean>(false);
+    const [parentCategory, setParentCategory]: [category, Dispatch<SetStateAction<category>>] = useState<category>({
+        _id: "",
+        description: "",
+        lastPost: "",
+        posts: 0,
+        timestamp: "",
+        title: "",
+        topics: 0,
+        urlName: "",
+        user: ""
+    });
+    const [post, setPost]: [post, Dispatch<SetStateAction<post>>] = useState<post>({
+        author: "",
+        text: "",
+        _id: "",
+        replies: [],
+        replyAmount: 0,
+        updatedAt: "",
+        createdAt: "",
+        title: "",
+        views: 0,
+        category: ""
+    })
 
-  useEffect(() => {
-    const url = import.meta.env.VITE_URL;
-    //Fetching category
-    fetch(`${url}/forum/categories`)
-      .then(data => data.json())
-      .then(data => {
-        const aux = data.find((e: category) => location.pathname.includes(e.urlName));
-        if (aux) return setParentCategory(aux);
-      })
-      .catch(error => console.error('Error:', error))
+    useEffect(() => {
+        const url = import.meta.env.VITE_URL;
+        //Fetching category
+        fetch(`${url}/forum/categories`)
+            .then(data => data.json())
+            .then(data => {
+                const aux = data.find((e: category) => location.pathname.includes(e.urlName));
+                if (aux) return setParentCategory(aux);
+            })
+            .catch(error => console.error('Error:', error))
 
-    //Fetching post
-    fetch(`${url}/forum${location.pathname}`)
-      .then(data => data.json())
-      .then(data => setPost(data))
-      .catch(error => console.error('Error:', error))
-  }, [])
+        //Fetching post
+        fetch(`${url}/forum${location.pathname}`)
+            .then(data => data.json())
+            .then(data => {
+                setPost(data);
+                if (location.state.views) {
+                    try {
+                        fetch(`${url}/forum/updating/post`, {
+                            method: "PATCH",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify({views: true}),
+                        })
+                            .then(data => {
+                                if (data.status !== 200) {
+                                    return data.json();
+                                }
+                            })
+                            .then(data => {
+                                throw new Error(data.error)
+                            });
+                    } catch (err) {
+                        console.error(err);
+                    }
+                }
+            })
+            .catch(error => console.error('Error:', error))
+    }, [])
 
-  const replyArray = Array<ReactElement>();
-  if (params.get("select")==="newest") {
-    for (let i = post.replies.length-1; i >= 0; i--) {
-      const reply = post.replies[i];
-      replyArray.push( <Reply text={reply.text} date={reply.createdAt} author={reply.author} key={reply._id} />);
+    const replyArray = Array<ReactElement>();
+    if (params.get("select")==="newest") {
+        for (let i = post.replies.length-1; i >= 0; i--) {
+            const reply = post.replies[i];
+            replyArray.push( <Reply text={reply.text} date={reply.createdAt} author={reply.author} key={reply._id} />);
+        }
+        replyArray.push(<Reply text={post.text} date={post.createdAt} author={post.author} key={post._id} />);
+    } else {
+        replyArray.push(<Reply text={post.text} date={post.createdAt} author={post.author} key={post._id} />);
+        for (let i = 0; i < post.replies.length; i++) {
+            const reply = post.replies[i];
+            replyArray.push( <Reply text={reply.text} date={reply.createdAt} author={reply.author} key={reply._id} />);
+        }
     }
-    replyArray.push(<Reply text={post.text} date={post.createdAt} author={post.author} key={post._id} />);
-  } else {
-    replyArray.push(<Reply text={post.text} date={post.createdAt} author={post.author} key={post._id} />);
-    for (let i = 0; i < post.replies.length; i++) {
-      const reply = post.replies[i];
-      replyArray.push( <Reply text={reply.text} date={reply.createdAt} author={reply.author} key={reply._id} />);
-    }
-  }
 
 
-  return (
-    <>
-      <PostHeader categoryURL={parentCategory.urlName} category={parentCategory.title} iconColor={""} icon={""} title={post.title} replies={344} posters={23} />
-      <MenuBar setActive={setActive} buttonText="Reply" options={[{value: "oldest", name: "Oldest"}, {value: "newest", name: "Newest"}]} />
-      {active? <WriteReply setActive={setActive} /> : null}
-      <div className={active? styles.activeDiv : ""}>
-        {post._id!==""? replyArray : null}
-      </div>
-    </>
-  );
+    return (
+        <>
+            <PostHeader categoryURL={parentCategory.urlName} category={parentCategory.title} iconColor={""} icon={""} title={post.title} replies={344} posters={23} />
+            <MenuBar setActive={setActive} buttonText="Reply" options={[{value: "oldest", name: "Oldest"}, {value: "newest", name: "Newest"}]} />
+            {active? <WriteReply setActive={setActive} /> : null}
+            <div className={active? styles.activeDiv : ""}>
+                {post._id!==""? replyArray : null}
+            </div>
+        </>
+    );
 }

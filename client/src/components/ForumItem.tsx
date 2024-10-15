@@ -12,7 +12,7 @@ export default function ForumItem(props: {isCategory?: boolean, url: string, las
       <div className={styles.left}>
         <div className={styles.icon}></div>
         <div className={styles.titleNDesc}>
-          <Link to={ (props.isCategory? "category/" : "post/") +props.url} className={styles.title}>{props.title}</Link>
+          <Link state={{ view: true }} to={ (props.isCategory? "category/" : "post/") +props.url} className={styles.title}>{props.title}</Link>
           {props.isCategory? <p className={styles.description}>{props.description}</p> : <Link to={ (props.isCategory? "category/" : "post/") +props.url} className={styles.description}>{dateString}</Link>}
         </div>
       </div>
