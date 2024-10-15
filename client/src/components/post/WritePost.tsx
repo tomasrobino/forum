@@ -1,16 +1,15 @@
 import {useLocation} from "react-router-dom";
-import {useEffect, useState} from "react";
+import {ChangeEvent, useEffect, useState} from "react";
 import {category} from "../../types.ts";
 
 export function WritePost() {
-    const location = useLocation();
-    let previousCategory;
-    if (location.state && "category" in location.state) {
-        previousCategory = location.state.category;
-    } else previousCategory = undefined;
-
     const [categories, setCategories] = useState<category[]>([]);
     const [selected, setSelected] = useState<number>(0);
+    const location = useLocation();
+    let previousCategory = "";
+    if (location.state && "category" in location.state && typeof location.state.category === "string") {
+        previousCategory = location.state.category;
+    }
 
     useEffect(() => {
         const url = import.meta.env.VITE_URL;
@@ -23,8 +22,8 @@ export function WritePost() {
             .catch(error => console.error('Error:', error))
     }, []);
 
-    function handleSelect() {
-
+    function handleSelect(e: ChangeEvent<HTMLSelectElement>) {
+        setSelected(parseInt(e.target.value));
     }
 
     const options = [];
@@ -33,8 +32,9 @@ export function WritePost() {
             if (value.urlName === previousCategory) return true;
         });
 
-        for (const category of categories) {
-            options.push(<option value={category.urlName} key={category.urlName}>{category.title}</option>);
+        for (let i = 0; i < categories.length; i++){
+            const category = categories[i];
+            options.push(<option value={i} key={category.urlName}>{category.title}</option>);
         }
 
         if (index > -1) {
