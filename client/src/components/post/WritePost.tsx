@@ -4,6 +4,7 @@ import {category} from "../../types.ts";
 import styles from "./WriteReply.module.css";
 import {UserPanel} from "./UserPanel.tsx";
 import {user} from "../../types.ts";
+import {MenuItem, Select, SelectChangeEvent} from "@mui/material";
 
 
 export function WritePost() {
@@ -50,13 +51,13 @@ export function WritePost() {
             .catch(error => console.error('Error:', error));
     }, []);
 
-    function handleSelect(e: ChangeEvent<HTMLSelectElement>) {
+    function handleSelect(e: SelectChangeEvent) {
         setSelected(e.target.value);
     }
 
     const options = [];
     for (const category of categories) {
-        options.push(<option value={category.urlName} key={category.urlName}>{category.title}</option>);
+        options.push(<MenuItem value={category.urlName} key={category.urlName}>{category.title}</MenuItem>);
     }
 
     function handleText(e: ChangeEvent<HTMLTextAreaElement>) {
@@ -96,11 +97,24 @@ export function WritePost() {
 
     return (
         <div>
-            <p>Write a post</p>
-            <select name="categorySelect" value={selected} onChange={handleSelect}>
-                {...options}
-            </select>
-            <input autoComplete="off" onChange={handleTitle} value={title}/>
+            <p className={`${styles.title} ${styles.postTitle}`}>Write a post</p>
+            <div className={styles.selectDiv}>
+                <p className={styles.category}>Category: </p>
+                <Select
+                    name="categorySelect"
+                    value={selected}
+                    onChange={handleSelect}
+                    variant="outlined"
+                    autoWidth={false}
+                    sx={{
+                    border: "none",
+                    color: "white",
+                    minWidth: "200px"
+                }}>
+                    {...options}
+                </Select>
+            </div>
+            <input className={`${styles.inputTitle} ${styles.textArea}`} autoComplete="off" onChange={handleTitle} value={title}/>
             <div className={styles.div}>
                 <UserPanel user={user}/>
                 <textarea className={styles.textArea} autoComplete="off" onChange={handleText} value={text}/>

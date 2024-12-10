@@ -45,6 +45,27 @@
     background-color: red;
 }
 
-.postButton {
+.postTitle {
+    display: inline-block;
+    margin-top: 50px;
+    font-size: 2rem;
+}
+
+.selectDiv > * {
+    display: inline;
+}
+
+.category {
+    font-size: 1.3rem;
+    margin-right: 10px;
+}
+
+.inputTitle {
+    font-size: 1.2rem;
+    height: 2rem;
+    width: 80%;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    margin-left: 0;
 
 }
