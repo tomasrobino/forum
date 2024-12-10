@@ -4,7 +4,7 @@ export default function ForumItem(props: {isCategory?: boolean, url: string, las
   let dateString;
   if (props.timestamp) {
     const timestamp = new Date(props.timestamp)
-    dateString = `${timestamp.getUTCDate()}/${timestamp.getUTCMonth()}/${timestamp.getUTCFullYear()}`;
+    dateString = `${timestamp.getUTCDate()}/${timestamp.getUTCMonth()+1}/${timestamp.getUTCFullYear()}`;
   } else dateString = "";
 
   return(
