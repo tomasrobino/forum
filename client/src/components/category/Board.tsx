@@ -31,7 +31,7 @@ export function Board() {
       title={postsData[i].title}
       user={postsData[i].author}
       timestamp={postsData[i].createdAt}
-      lastPost={"fdsuilfmlndsbofoiushlifu  kudsy fdslñ fjls fdsgi fpds lgfsdy  fuif lhds f dsfh"} //TODO: Get last post
+      lastPost={postsData[i].replies.length > 0 ?  postsData[i].replies[0].text : postsData[i].text}
       firstAmount={postsData[i].views}
       secondAmount={postsData[i].replyAmount}
       key={i}
