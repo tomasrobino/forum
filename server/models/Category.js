@@ -7,7 +7,8 @@ const categorySchema = new Schema({
   description: String,
   posts: Number,
   topics: Number,
-  timestamp: Schema.Types.Date
+  timestamp: Schema.Types.Date,
+  lastPost: String
 }, { versionKey: false });
 
 const Category = model('Category', categorySchema);

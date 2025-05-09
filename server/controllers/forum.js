@@ -85,6 +85,7 @@ async function post(req, res) {
     const category = await Category.findOne({ urlName: req.body.category});
     if (!category) res.status(404).send({"error": "Category not found"});
     category.posts++;
+    category.lastPost = req.body.title;
     try {
         await category.save();
     } catch (err) {
